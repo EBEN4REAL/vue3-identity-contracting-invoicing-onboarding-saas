@@ -1,0 +1,36 @@
+{
+  "name": "VF-38 Output type",
+  "description": "Basic usage of output types.",
+  "mode": "edit",
+  "section_expanded": false,
+  "expand_on_load": false,
+  "status": "new",
+  "model": {
+    "redirect_url": "https://redirect_url.com",
+    "redirect_url_1": "https://deeply_nested.redirect_url_1.com",
+    "redirect_url_2": "https://deeply_nested.redirect_url_2.com"
+  },
+  "metadata": {
+    "type": "vux-component-group",
+    "redirect_url": {
+      "type": "vux-output-property"
+    },
+    "redirect_urls_multiple": {
+      "type": "vux-output-property"
+    },
+    "redirect_urls_multiple_with_missing_key": {
+      "type": "vux-output-property"
+    }
+  },
+  "i18n": {
+    "redirect_url": {
+      "html_template": "Redirect to: {{redirect_url}}"
+    },
+    "redirect_urls_multiple": {
+      "html_template": "Redirects to <b>deeply nested</b> url 1: {{redirect_url_1}} or url 2: {{redirect_url_2}}"
+    },
+    "redirect_urls_multiple_with_missing_key": {
+      "html_template": "This key: {{missing_key}} does not exist in the model"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "name": "T02. Simple group with horizontal layout",
+  "description": "Demonstrates horizontal arrangement of text input fields with validations.",
+  "mode": "edit",
+  "section_expanded": false,
+  "expand_on_load": false,
+  "status": "new",
+  "model": {
+    "poc_textproperty": "Basic input",
+    "poc_textproperty_required": "Required value",
+    "poc_textproperty_maxlength_16": "Short text"
+  },
+  "metadata": {
+    "type": "vux-component-group",
+    "layout": {
+      "orientation": "horizontal"
+    },
+    "poc_textproperty": {
+      "type": "vux-input-property",
+      "validations": {}
+    },
+    "poc_textproperty_required": {
+      "type": "vux-input-property",
+      "validations": {
+        "required": true
+      }
+    },
+    "poc_textproperty_maxlength_16": {
+      "type": "vux-input-property",
+      "validations": {
+        "maxlength": 16
+      }
+    }
+  },
+  "i18n": {
+    "poc_textproperty": {
+      "label": "Optional Text Input",
+      "label_tooltip": "Provide optional short text.",
+      "info_text": "No validation required.",
+      "learn_more_url": "https://example.com/poc_textproperty",
+      "placeholder": ""
+    },
+    "poc_textproperty_required": {
+      "label": "Required Text Input",
+      "label_tooltip": "This input must not be empty.",
+      "info_text": "Field must be filled to proceed.",
+      "learn_more_url": "https://example.com/poc_textproperty_required",
+      "validations": {
+        "required": "This field is mandatory."
+      },
+      "placeholder": ""
+    },
+    "poc_textproperty_maxlength_16": {
+      "label": "Limited Length Input",
+      "label_tooltip": "Max 16 characters allowed.",
+      "info_text": "Keep your input concise.",
+      "learn_more_url": "https://example.com/poc_textproperty_maxlength_16",
+      "validations": {
+        "maxlength": "Cannot exceed 16 characters."
+      },
+      "placeholder": ""
+    }
+  }
+}

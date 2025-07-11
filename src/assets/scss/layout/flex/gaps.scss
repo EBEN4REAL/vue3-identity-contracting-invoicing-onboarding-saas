@@ -1,0 +1,18 @@
+$flex-gaps_coefficient: 2px;
+$flex-gaps_iterations: 16;
+
+@for $i from 1 through $flex-gaps_iterations {
+  $value: $flex-gaps_coefficient * $i;
+
+  .mm-flex-gap-#{$i} {
+    gap: $value;
+  }
+}
+
+@for $i from 1 through $flex-gaps_iterations {
+  $value: $flex-gaps_coefficient * $i;
+
+  .mm-flex-column-gap-#{$i} {
+    column-gap: $value;
+  }
+}

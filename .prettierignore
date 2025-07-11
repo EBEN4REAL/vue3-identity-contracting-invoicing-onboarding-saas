@@ -1,0 +1,6 @@
+cypress/cucumber/reports
+cypress/downloads
+cypress/screenshots
+cypress/snapshots
+
+**/*.schemas.ts

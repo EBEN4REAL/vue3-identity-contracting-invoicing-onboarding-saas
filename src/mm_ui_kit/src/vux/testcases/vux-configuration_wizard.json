@@ -1,0 +1,275 @@
+{
+  "name": "T12. Test Wizard configuration section",
+  "description": "Demonstrates wizard with sections",
+  "mode": "view",
+  "section_expanded": false,
+  "expand_on_load": true,
+  "status": "new",
+  "model": {
+    "wizard_config": {
+      "create_group": {
+        "input_wizard_name": ""
+      },
+      "read_group": {
+        "input_wizard_id": ""
+      }
+    }
+  },
+  "metadata": {
+    "type": "vux-component-group",
+    "wizard_config": {
+      "type": "vux-configuration-wizard",
+      "create_group": {
+        "type": "vux-component-group",
+        "layout": { "orientation": "vertical" },
+        "input_wizard_name": {
+          "type": "vux-input-property",
+          "validations": { "required": true },
+          "default": {
+            "value": "please add a wizard name"
+          }
+        },
+        "actions": {
+          "create": {
+            "audience": "vux-configuration_wizard.wizard_config"
+          }
+        }
+      },
+      "read_group": {
+        "type": "vux-component-group",
+        "layout": { "orientation": "vertical" },
+        "input_wizard_id": {
+          "type": "vux-input-property",
+          "validations": {},
+          "default": {
+            "value": ""
+          }
+        },
+        "actions": {
+          "read": {
+            "audience": "vux-configuration_wizard.wizard_config"
+          }
+        }
+      },
+      "wizard": {
+        "type": "vux-component-group",
+        "layout": { "orientation": "vertical" },
+        "name": {
+          "type": "vux-input-property",
+          "validations": { "required": true },
+          "default": {
+            "value": "default from metadata"
+          }
+        },
+        "description": {
+          "type": "vux-input-property",
+          "validations": { "required": true }
+        },
+        "RoleBasedAccess": {
+          "type": "vux-component-list",
+          "section": {
+            "type": "vux-configuration-section",
+            "data": {
+              "type": "vux-component-group",
+              "roles": {
+                "type": "vux-component-list",
+                "name": {
+                  "type": "vux-input-property",
+                  "validations": { "required": true },
+                  "default": {
+                    "value": "default from metadata"
+                  }
+                },
+                "description": {
+                  "type": "vux-input-property",
+                  "validations": {},
+                  "default": {
+                    "value": "default from metadata"
+                  }
+                },
+                "actions": {
+                  "new": {
+                    "audience": "vux-configuration_wizard.wizard_config.wizard.RoleBasedAccess.section.roles"
+                  }
+                }
+              },
+              "actions": {
+                "style": "sideBySide",
+                "edit": {
+                  "audience": "vux-configuration_wizard.wizard_config.wizard.RoleBasedAccess.section",
+                  "status": {
+                    "disabled": false,
+                    "hidden": false
+                  }
+                },
+                "save": {
+                  "audience": "vux-configuration_wizard.wizard_config.wizard.RoleBasedAccess.section",
+                  "status": {
+                    "disabled": false,
+                    "hidden": false
+                  }
+                },
+                "discard": {
+                  "audience": "vux-configuration_wizard.wizard_config.wizard.RoleBasedAccess.section",
+                  "status": {
+                    "disabled": false,
+                    "hidden": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "actions": {
+          "style": "sideBySide",
+          "delete": {
+            "audience": "vux-configuration_wizard.wizard_config"
+          },
+          "disconnect": {
+            "audience": "vux-configuration_wizard.wizard_config"
+          },
+          "publish": {
+            "audience": "vux-configuration_wizard.wizard_config"
+          }
+        }
+      }
+    }
+  },
+  "i18n": {
+    "wizard_config": {
+      "create_group": {
+        "input_wizard_name": {
+          "label": "Wizard name",
+          "label_tooltip": "You must fill this field.",
+          "info_text": "Critical for form processing.",
+          "learn_more_url": "https://example.com/row2/input1",
+          "validations": {
+            "required": "This field is required."
+          },
+          "placeholder": "Enter a wizard name"
+        },
+        "actions": {
+          "create": {
+            "label": "Create wizard",
+            "description": "create wizard",
+            "tooltip": "Click to create."
+          }
+        }
+      },
+      "read_group": {
+        "input_wizard_id": {
+          "label": "Wizard id",
+          "label_tooltip": "",
+          "info_text": "",
+          "learn_more_url": "",
+          "validations": {},
+          "placeholder": "Wizard id"
+        },
+        "actions": {
+          "read": {
+            "label": "Read wizard",
+            "description": "get wizard",
+            "tooltip": "Click to read."
+          }
+        }
+      },
+      "wizard": {
+        "name": {
+          "label": "Name",
+          "label_tooltip": "You must fill this field.",
+          "info_text": "Critical for form processing.",
+          "learn_more_url": "https://example.com/row2/input1",
+          "validations": {
+            "required": "This field is required."
+          },
+          "placeholder": ""
+        },
+        "description": {
+          "label": "Description",
+          "label_tooltip": "",
+          "info_text": "",
+          "learn_more_url": "",
+          "validations": {},
+          "placeholder": ""
+        },
+        "RoleBasedAccess": {
+          "section": {
+            "roles": {
+              "name": {
+                "label": "Name",
+                "label_tooltip": "You must fill this field.",
+                "info_text": "Critical for form processing.",
+                "learn_more_url": "https://example.com/row2/input1",
+                "validations": {
+                  "required": "This field is required."
+                },
+                "placeholder": ""
+              },
+              "description": {
+                "label": "Description",
+                "label_tooltip": "Provide optional short text.",
+                "info_text": "No validation required.",
+                "learn_more_url": "https://example.com/poc_textproperty",
+                "placeholder": ""
+              },
+              "actions": {
+                "delete": {
+                  "label": "",
+                  "tooltip": "Delete this row from the array."
+                },
+                "new": {
+                  "label": "Create",
+                  "tooltip": "Add a new row to the array."
+                }
+              }
+            },
+            "actions": {
+              "edit": {
+                "label": "edit",
+                "description": "Edit",
+                "tooltip": "Click to Edit."
+              },
+              "save": {
+                "label": "save",
+                "description": "Save",
+                "tooltip": "Click to Save."
+              },
+              "discard": {
+                "label": "discard",
+                "description": "Discard",
+                "tooltip": "Click to Discard."
+              }
+            }
+          },
+          "actions": {
+            "delete": {
+              "label": "",
+              "tooltip": "Delete this row from the array."
+            },
+            "new": {
+              "label": "Create",
+              "tooltip": "Add a new row to the array."
+            }
+          }
+        },
+        "actions": {
+          "delete": {
+            "label": "Delete wizard",
+            "description": "delete wizard",
+            "tooltip": "Click to delete."
+          },
+          "disconnect": {
+            "label": "Disconnect wizard",
+            "description": "disconnect wizard",
+            "tooltip": "Click to disconnect."
+          },
+          "publish": {
+            "label": "Publish wizard",
+            "description": "publish wizard",
+            "tooltip": "Click to publish."
+          }
+        }
+      }
+    }
+  }
+}

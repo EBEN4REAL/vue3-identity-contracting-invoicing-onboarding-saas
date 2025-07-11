@@ -1,0 +1,67 @@
+{
+  "name": "T03. Input properties with default values",
+  "description": "Demonstrates input fields with metadata-defined default values and validations.",
+  "mode": "edit",
+  "section_expanded": false,
+  "expand_on_load": false,
+  "status": "pending",
+  "model": {
+    "poc_textproperty_required": "Pre-filled required value"
+  },
+  "metadata": {
+    "type": "vux-component-group",
+    "poc_textproperty": {
+      "type": "vux-input-property",
+      "validations": {},
+      "default": {
+        "value": "default from metadata"
+      }
+    },
+    "poc_textproperty_required": {
+      "type": "vux-input-property",
+      "validations": {
+        "required": true
+      }
+    },
+    "poc_textproperty_maxlength_16": {
+      "type": "vux-input-property",
+      "validations": {
+        "required": true,
+        "maxlength": 16
+      }
+    }
+  },
+  "i18n": {
+    "poc_textproperty": {
+      "label": "Text Input (with default)",
+      "label_tooltip": "This field has a default value set via metadata.",
+      "info_text": "Can be overridden by user input.",
+      "learn_more_url": "https://example.com/poc_textproperty",
+      "placeholder": ""
+    },
+    "poc_textproperty_required": {
+      "label": "Required Input",
+      "label_tooltip": "You must provide a value.",
+      "info_text": "Required field for form submission.",
+      "learn_more_url": "https://example.com/poc_textproperty_required",
+      "validations": {
+        "required": "This field is required."
+      },
+      "placeholder": ""
+    },
+    "poc_textproperty_maxlength_16": {
+      "label": "Max Length Input (16)",
+      "label_tooltip": "Input is limited to 16 characters.",
+      "info_text": "You can set default values in metadata or in i18n. If both are set, i18n takes precedence.",
+      "learn_more_url": "https://example.com/poc_textproperty_maxlength_16",
+      "default": {
+        "value": "Default from i18n"
+      },
+      "placeholder": "",
+      "validations": {
+        "required": "This field is required.",
+        "maxlength": "Maximum allowed characters: 16"
+      }
+    }
+  }
+}

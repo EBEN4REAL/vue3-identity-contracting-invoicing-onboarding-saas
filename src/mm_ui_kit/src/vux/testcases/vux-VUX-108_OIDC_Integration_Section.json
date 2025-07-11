@@ -1,0 +1,264 @@
+{
+    "name": "OIDC Integration Section (VUX-108)",
+    "description": "Allows the user to configure OIDC integration settings, including client ID, redirect URLs, and client secrets. For more information, see <a href='https://veriam.atlassian.net/browse/NT-683' target='_blank'>NT-683</a>.",
+    "mode": "edit",
+    "section_expanded": false,
+    "expand_on_load": false,
+    "status": "new",
+    "model": {
+        "client_id": "123e4567-e89b-12d3-a456-426614174000",
+        "redirectUrls": [
+            {
+                "url": "https://example.com/callback",
+                "active": true
+            },
+            {
+                "url": "https://example.org/callback",
+                "active": false
+            }
+        ],
+        "discovery_url": "https://example.com/.well-known/openid-configuration",
+        "client_secrets": [
+            {
+                "secret": "clientsecret111",
+                "timestamp": "2023-01-15T10:00:00Z"
+            },
+            {
+                "secret": "clientsecret222",
+                "timestamp": "2023-02-10T15:30:00Z"
+            }
+        ]
+    },
+    "metadata": {
+        "type": "vux-configuration-wizard-header",
+        "layout": "horizontal",
+        "client_id": {
+            "type": "vux-input-property",
+            "validations": {
+                "required": true,
+                "unique": {
+                    "path": "existingNames"
+                }
+            },
+            "actions": {
+                "copy": {
+                    "status": {
+                        "pressed": false
+                    }
+                }
+            },
+            "status": {
+                "disabled": true
+            }
+        },
+        "redirectUrls": {
+            "type": "vux-component-list",
+            "url": {
+                "type": "vux-input-property",
+                "inputMode": "url",
+                "validations": {
+                    "required": true
+                }
+            },
+            "active": {
+                "type": "vux-input-property",
+                "inputMode": "toggle",
+                "default": {
+                    "value": true
+                },
+                "validations": {}
+            },
+            "actions": {
+                "new": {
+                    "label": "Add redirect URL",
+                    "tooltip": "Click to add a new redirect URL."
+                }
+            }
+        },
+        "discovery_url": {
+            "type": "vux-input-property",
+            "actions": {
+                "copy": {
+                    "status": {
+                        "pressed": false
+                    }
+                }
+            },
+            "status": {
+                "disabled": true
+            }
+        },
+        "client_secrets": {
+            "type": "vux-component-list",
+            "secret": {
+                "type": "vux-input-property",
+                "inputMode": "secret",
+                "default": {
+                    "value": "super secret can be copied"
+                },
+                "actions": {
+                    "copy": {
+                        "status": {
+                            "pressed": false
+                        }
+                    }
+                },
+                "status": {
+                    "disabled": true
+                }
+            },
+            "timestamp": {
+                "type": "vux-input-property",
+                "inputMode": "datetime",
+                "validations": {},
+                "default": {
+                    "value": "now"
+                },
+                "status": {
+                    "disabled": true
+                }
+            },
+            "actions": {
+                "new": {}
+            }
+        }
+    },
+    "i18n": {
+        "client_id": {
+            "label": "Client ID",
+            "label_tooltip": "This is the unique identifier for the client. You can copy it to the clipboard.",
+            "info_text": "The client ID is automatically generated and cannot be edited.",
+            "learn_more_url": "https://example.com/learn-more-client-id",
+            "status": {
+                "disabled": {
+                    "label": "Client ID",
+                    "label_tooltip": "This is the unique identifier for the client. You can copy it to the clipboard.",
+                    "info_text": "The client ID is automatically generated and cannot be edited.",
+                    "learn_more_url": "https://example.com/learn-more-client-id"
+                }
+            },
+            "actions": {
+                "copy": {
+                    "label": "",
+                    "tooltip": "Click to copy the client ID to the clipboard.",
+                    "status": {
+                        "pressed": {
+                            "label": "",
+                            "tooltip": "Copied!"
+                        }
+                    }
+                }
+            }
+        },
+        "redirectUrls": {
+            "url": {
+                "label": "Redirect URL",
+                "placeholder": "https://",
+                "label_tooltip": "Enter the URL to which the authorization server will redirect the user after authentication.",
+                "info_text": "Ensure the URL is valid and matches the expected callback URL.",
+                "learn_more_url": "https://example.com/learn-more-redirect-url",
+                "validations": {
+                    "required": "This field is required."
+                }
+            },
+            "active": {
+                "label": "Active",
+                "label_tooltip": "Toggle to activate or deactivate this redirect URL.",
+                "info_text": "Only active URLs will be used during the authentication process.",
+                "learn_more_url": "https://example.com/learn-more-active"
+            },
+            "actions": {
+                "new": {
+                    "label": "Add redirect URL",
+                    "tooltip": "Click to add a new redirect URL."
+                },
+                "delete": {
+                    "label": "",
+                    "tooltip": "Click to add a new redirect URL."
+                }
+            }
+        },
+        "discovery_url": {
+            "label": "Discovery URL",
+            "label_tooltip": "This is the URL for the OpenID Connect discovery document.",
+            "info_text": "The discovery URL provides metadata about the OpenID Connect provider.",
+            "learn_more_url": "https://example.com/learn-more-discovery-url",
+            "status": {
+                "disabled": {
+                    "label": "Discovery URL",
+                    "label_tooltip": "This is the URL for the OpenID Connect discovery document.",
+                    "info_text": "The discovery URL provides metadata about the OpenID Connect provider.",
+                    "learn_more_url": "https://example.com/learn-more-discovery-url"
+                }
+            },
+            "actions": {
+                "copy": {
+                    "label": "",
+                    "tooltip": "Click to copy the Discovery URL to the clipboard.",
+                    "status": {
+                        "pressed": {
+                            "label": "",
+                            "tooltip": "Copied!"
+                        }
+                    }
+                }
+            }
+        },
+        "client_secrets": {
+            "secret": {
+                "label": "Client Secret",
+                "label_tooltip": "This is the secret associated with the client. You can copy or cut it to the clipboard.",
+                "info_text": "The client secret is used for secure communication with the authorization server.",
+                "learn_more_url": "https://example.com/learn-more-client-secret",
+                "status": {
+                    "disabled": {
+                        "label": "Client Secret",
+                        "label_tooltip": "This is the secret associated with the client. You can copy or cut it to the clipboard.",
+                        "info_text": "The client secret is used for secure communication with the authorization server.",
+                        "learn_more_url": "https://example.com/learn-more-client-secret"
+                    }
+                },
+                "actions": {
+                    "copy": {
+                        "label": "",
+                        "tooltip": "Click to copy the client secret to the clipboard.",
+                        "status": {
+                            "pressed": {
+                                "label": "",
+                                "tooltip": "Copied!"
+                            }
+                        }
+                    }
+                },
+                "validations": {
+                    "required": "This field is required."
+                }
+            },
+            "timestamp": {
+                "label": "Timestamp",
+                "placeholder": "Timestamp placeholder",
+                "label_tooltip": "The date and time when the client secret was generated.",
+                "info_text": "This field is automatically populated when a new client secret is created.",
+                "learn_more_url": "https://example.com/learn-more-timestamp",
+                "status": {
+                    "disabled": {
+                        "label": "Timestamp",
+                        "placeholder": "Timestamp placeholder",
+                        "label_tooltip": "The date and time when the client secret was generated.",
+                        "info_text": "This field is automatically populated when a new client secret is created.",
+                        "learn_more_url": "https://example.com/learn-more-timestamp"
+                    }
+                }
+            },
+            "actions": {
+                "new": {
+                    "label": "Get (new) client secret",
+                    "tooltip": "Click to generate a new client secret."  },
+                "delete": {
+                    "label": "",
+                    "tooltip": "Revoke this client secret."
+        }
+            }
+        }
+    }
+}

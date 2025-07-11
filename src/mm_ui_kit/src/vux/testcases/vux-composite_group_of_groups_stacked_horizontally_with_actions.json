@@ -1,0 +1,124 @@
+{
+  "name": "T06. Composite horizontal group with actions",
+  "description": "Composite horizontal layout with actions like delete enabled per group.",
+  "mode": "edit",
+  "section_expanded": false,
+  "expand_on_load": false,
+  "status": "pending",
+  "model": {
+    "poc_component_group_1": {
+      "poc_textproperty_1_1": "First input 1",
+      "poc_textproperty_1_2": "First input 2",
+      "poc_textproperty_1_3": "First input 3"
+    },
+    "poc_component_group_2": {
+      "poc_textproperty_2_1": "Second input 1",
+      "poc_textproperty_2_2": "Second input 2",
+      "poc_textproperty_2_3": "Second input 3"
+    }
+  },
+  "metadata": {
+    "type": "vux-component-group",
+    "layout": { "orientation": "horizontal" },
+    "poc_component_group_1": {
+      "type": "vux-component-group",
+      "layout": { "orientation": "vertical" },
+      "actions": {
+        "delete": {
+          "audience": "Allows you to provide a resource id to limit the audience for this action.",
+          "random_field_1": "The VUX framework allows you to parameterise actions in metadata, and provide the information required to it.",
+          "random_field_2": "The handle action emit provides the fieldname (e.g. delete), this action definition and the object on which this action is executed."
+        }
+      },
+      "poc_textproperty_1_1": { "type": "vux-input-property", "validations": {} },
+      "poc_textproperty_1_2": { "type": "vux-input-property", "validations": {} },
+      "poc_textproperty_1_3": { "type": "vux-input-property", "validations": {} }
+    },
+    "poc_component_group_2": {
+      "type": "vux-component-group",
+      "layout": { "orientation": "vertical" },
+      "actions": {
+        "delete": {
+          "audience": "Allows you to provide a resource id to limit the audience for this action.",
+          "random_field_1": "The VUX framework allows you to parameterise actions in metadata, and provide the information required to it.",
+          "random_field_2": "The handle action emit provides the fieldname (e.g. delete), this action definition and the object on which this action is executed."
+        }
+      },
+      "poc_textproperty_2_1": { "type": "vux-input-property", "validations": { "required": true } },
+      "poc_textproperty_2_2": { "type": "vux-input-property", "validations": { "required": true } },
+      "poc_textproperty_2_3": { "type": "vux-input-property", "validations": { "required": true } }
+    }
+  },
+  "i18n": {
+    "poc_component_group_1": {
+      "poc_textproperty_1_1": {
+        "label": "Group 1 - Input 1",
+        "label_tooltip": "First group optional input.",
+        "info_text": "No validation here.",
+        "learn_more_url": "https://example.com/g1/input1",
+        "placeholder": ""
+      },
+      "poc_textproperty_1_2": {
+        "label": "Group 1 - Input 2",
+        "label_tooltip": "Second optional input in group 1.",
+        "info_text": "Free-form input.",
+        "learn_more_url": "https://example.com/g1/input2",
+        "placeholder": ""
+      },
+      "poc_textproperty_1_3": {
+        "label": "Group 1 - Input 3",
+        "label_tooltip": "Another optional field.",
+        "info_text": "You can skip this.",
+        "learn_more_url": "https://example.com/g1/input3",
+        "placeholder": ""
+      },
+      "actions": {
+        "delete": {
+          "label": "Delete Group 1",
+          "description": "This action will remove Group 1’s content.",
+          "tooltip": "Click to delete this group."
+        },
+        "placeholder": ""
+      }
+    },
+    "poc_component_group_2": {
+      "poc_textproperty_2_1": {
+        "label": "Group 2 - Required Input 1",
+        "label_tooltip": "You must provide a value here.",
+        "info_text": "Required for validation.",
+        "learn_more_url": "https://example.com/g2/input1",
+        "validations": {
+          "required": "This field is required."
+        },
+        "placeholder": ""
+      },
+      "poc_textproperty_2_2": {
+        "label": "Group 2 - Required Input 2",
+        "label_tooltip": "Must be filled in before proceeding.",
+        "info_text": "Another required field.",
+        "learn_more_url": "https://example.com/g2/input2",
+        "validations": {
+          "required": "This field is required."
+        },
+        "placeholder": ""
+      },
+      "poc_textproperty_2_3": {
+        "label": "Group 2 - Required Input 3",
+        "label_tooltip": "Required last input in group 2.",
+        "info_text": "Used in downstream logic.",
+        "learn_more_url": "https://example.com/g2/input3",
+        "validations": {
+          "required": "This field is required."
+        },
+        "placeholder": ""
+      },
+      "actions": {
+        "delete": {
+          "label": "Delete Group 2",
+          "description": "Removes the second group from the UI.",
+          "tooltip": "Click to perform deletion."
+        }
+      }
+    }
+  }
+}

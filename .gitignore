@@ -1,0 +1,35 @@
+.vite-ssg-temp
+
+node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
+tsconfig.tsbuildinfo
+
+# lock
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
+
+*.log
+
+.idea
+.vscode
+
+# tests
+.nyc_output
+coverage
+coverage.json
+cypress/cucumber/reports/json
+cypress/cucumber/reports/html
+cypress/downloads/*
+cypress/screenshots
+cypress/snapshots/actual
+cypress/snapshots/diff
+cypress/videos
+cypress/parallel-weights.json
+runner-results
+multi-reporter-config.json
+
+src/mm_ui_kit

@@ -1,0 +1,126 @@
+{
+  "name": "T08. Array group with actions and required section",
+  "description": "Tests array values with shared schema and inline actions, alongside a required block with its own actions.",
+  "mode": "edit",
+  "section_expanded": false,
+  "expand_on_load": false,
+  "status": "pending",
+  "model": {
+    "poc_component_group_1": [
+      {
+        "poc_textproperty_1_1": "Entry 1 - Field 1",
+        "poc_textproperty_1_2": "Entry 1 - Field 2",
+        "poc_textproperty_1_3": "Entry 1 - Field 3"
+      },
+      {
+        "poc_textproperty_1_1": "Entry 2 - Field 1",
+        "poc_textproperty_1_2": "Entry 2 - Field 2",
+        "poc_textproperty_1_3": "Entry 2 - Field 3"
+      },
+      {
+        "poc_textproperty_1_1": "Entry 3 - Field 1",
+        "poc_textproperty_1_2": "Entry 3 - Field 2",
+        "poc_textproperty_1_3": "Entry 3 - Field 3"
+      }
+    ],
+    "poc_component_group_2": {
+      "poc_textproperty_2_1": "Final group - Field 1",
+      "poc_textproperty_2_2": "Final group - Field 2",
+      "poc_textproperty_2_3": "Final group - Field 3"
+    }
+  },
+  "metadata": {
+    "type": "vux-component-group",
+    "poc_component_group_1": {
+      "type": "vux-component-list",
+      "poc_textproperty_1_1": { "type": "vux-input-property", "validations": {} },
+      "poc_textproperty_1_2": { "type": "vux-input-property", "validations": {} },
+      "poc_textproperty_1_3": { "type": "vux-input-property", "validations": {} }
+    },
+    "poc_component_group_2": {
+      "type": "vux-component-group",
+      "layout": { "orientation": "horizontal" },
+      "actions": {
+        "delete": {
+          "audience": "Allows you to provide a resource id to limit the audience for this action.",
+          "random_field_1": "This action is available for the bottom static group.",
+          "random_field_2": "Used for administrative or UI-based deletion."
+        }
+      },
+      "poc_textproperty_2_1": { "type": "vux-input-property", "validations": { "required": true } },
+      "poc_textproperty_2_2": { "type": "vux-input-property", "validations": { "required": true } },
+      "poc_textproperty_2_3": { "type": "vux-input-property", "validations": { "required": true } }
+    }
+  },
+  "i18n": {
+    "poc_component_group_1": {
+      "poc_textproperty_1_1": {
+        "label": "Array Field 1",
+        "label_tooltip": "First field of the array item.",
+        "info_text": "This field is optional and repeatable.",
+        "learn_more_url": "https://example.com/array/field1",
+        "placeholder": ""
+      },
+      "poc_textproperty_1_2": {
+        "label": "Array Field 2",
+        "label_tooltip": "Second field of the repeated group.",
+        "info_text": "Used to demonstrate repeated schema entries.",
+        "learn_more_url": "https://example.com/array/field2",
+        "placeholder": ""
+      },
+      "poc_textproperty_1_3": {
+        "label": "Array Field 3",
+        "label_tooltip": "Optional trailing field.",
+        "info_text": "Can be used across array rows.",
+        "learn_more_url": "https://example.com/array/field3",
+        "placeholder": ""
+      },
+      "actions": {
+        "delete": {
+          "label": "Delete Entry",
+          "description": "Removes this row from the array group.",
+          "tooltip": "Click to delete this row."
+        }
+      }
+    },
+    "poc_component_group_2": {
+      "poc_textproperty_2_1": {
+        "label": "Final Field 1",
+        "label_tooltip": "This is a required field.",
+        "info_text": "Mandatory input to complete the form.",
+        "learn_more_url": "https://example.com/final/field1",
+        "validations": {
+          "required": "This field is required."
+        },
+        "placeholder": ""
+      },
+      "poc_textproperty_2_2": {
+        "label": "Final Field 2",
+        "label_tooltip": "Required field for confirmation.",
+        "info_text": "Ensure all fields are completed.",
+        "learn_more_url": "https://example.com/final/field2",
+        "validations": {
+          "required": "This field is required."
+        },
+        "placeholder": ""
+      },
+      "poc_textproperty_2_3": {
+        "label": "Final Field 3",
+        "label_tooltip": "Mandatory field to proceed.",
+        "info_text": "Used to verify final input section.",
+        "learn_more_url": "https://example.com/final/field3",
+        "validations": {
+          "required": "This field is required."
+        },
+        "placeholder": ""
+      },
+      "actions": {
+        "delete": {
+          "label": "Delete Group",
+          "description": "Deletes the final static input group.",
+          "tooltip": "Delete static section"
+        }
+      }
+    }
+  }
+}

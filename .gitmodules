@@ -1,0 +1,4 @@
+[submodule "mm_ui_kit"]
+	path = src/mm_ui_kit
+	url = git@gitlab.com:metricsmatter/it/dev/frontend/mm_ui_kit.git
+ 

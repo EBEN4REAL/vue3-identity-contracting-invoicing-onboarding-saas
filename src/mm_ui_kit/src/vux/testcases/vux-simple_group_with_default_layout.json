@@ -1,0 +1,526 @@
+{
+  "name": "T01. Simple group with default layout",
+  "description": "Basic usage of input fields with optional and required validation.",
+  "mode": "edit",
+  "section_expanded": false,
+  "expand_on_load": false,
+  "status": "new",
+  "model": {
+    "poc_textproperty": "Example text",
+    "poc_textproperty_disabled": "Example disabled text",
+    "poc_textproperty_required": "Required example",
+    "poc_textproperty_maxlength_16": "Max16Chars",
+    "poc_textarea": "Example textarea content.",
+    "poc_textarea_rows_12": "Textarea with 12 rows.",
+    "poc_textarea_required": "This field is required.",
+    "poc_checkbox": true,
+    "poc_checkbox_required": true,
+    "poc_checkbox_required_no_error_translation": true,
+    "poc_toggle": false,
+    "poc_toggle_required": true,
+    "poc_datepicker": "",
+    "poc_datepicker_required": "",
+    "poc_timepicker": "",
+    "poc_datetimepicker": "",
+    "poc_dropdown_required": {
+      "option1": {
+        "selected": true,
+        "disabled": false
+      },
+      "option2": {
+        "selected": false,
+        "disabled": false
+      }
+    },
+    "poc_radiogroup_with_default": {
+      "option1": {
+        "selected": true,
+        "disabled": false
+      },
+      "option2": {
+        "selected": false,
+        "disabled": true
+      },
+      "option3": {
+        "selected": false,
+        "disabled": false
+      },
+      "option4": {
+        "selected": false,
+        "disabled": false
+      }
+    },
+    "poc_checkboxgroup_with_max_select": {
+      "option1": {
+        "selected": true,
+        "disabled": false
+      },
+      "option2": {
+        "selected": true,
+        "disabled": false
+      },
+      "option3": {
+        "selected": false,
+        "disabled": false
+      },
+      "option4": {
+        "selected": true,
+        "disabled": false
+      }
+    }
+  },
+  "metadata": {
+    "type": "vux-component-group",
+    "poc_textproperty": {
+      "type": "vux-input-property",
+      "validations": {}
+    },
+    "poc_textproperty_disabled": {
+      "type": "vux-input-property",
+      "validations": {},
+      "status": {
+        "disabled": true
+      }
+    },
+    "poc_textproperty_required": {
+      "type": "vux-input-property",
+      "validations": {
+        "required": true
+      }
+    },
+    "poc_textproperty_maxlength_16": {
+      "type": "vux-input-property",
+      "validations": {
+        "required": true,
+        "maxlength": 16
+      }
+    },
+    "poc_textarea": {
+      "type": "vux-input-property",
+      "validations": {},
+      "inputMode": "textarea",
+      "textareaRows": 12
+    },
+    "poc_textarea_rows_12": {
+      "type": "vux-input-property",
+      "validations": {},
+      "inputMode": "textarea"
+    },
+    "poc_textarea_required": {
+      "type": "vux-input-property",
+      "validations": {
+        "required": true
+      },
+      "inputMode": "textarea"
+    },
+    "poc_checkbox": {
+      "type": "vux-input-property",
+      "validations": {
+        "required": false
+      },
+      "inputMode": "checkbox"
+    },
+    "poc_checkbox_required": {
+      "type": "vux-input-property",
+      "validations": {
+        "required": true
+      },
+      "inputMode": "checkbox"
+    },
+    "poc_checkbox_required_no_error_translation": {
+      "type": "vux-input-property",
+      "validations": {
+        "required": true
+      },
+      "inputMode": "checkbox"
+    },
+    "poc_toggle": {
+      "type": "vux-input-property",
+      "validations": {
+        "required": false
+      },
+      "inputMode": "toggle"
+    },
+    "poc_toggle_required": {
+      "type": "vux-input-property",
+      "validations": {
+        "required": true
+      },
+      "inputMode": "toggle"
+    },
+    "poc_datepicker": {
+      "type": "vux-input-property",
+      "validations": {
+        "required": false
+      },
+      "inputMode": "date"
+    },
+    "poc_datepicker_required": {
+      "type": "vux-input-property",
+      "validations": {
+        "required": true
+      },
+      "inputMode": "date"
+    },
+    "poc_timepicker": {
+      "type": "vux-input-property",
+      "validations": {
+        "required": false
+      },
+      "inputMode": "time"
+    },
+    "poc_datetimepicker": {
+      "type": "vux-input-property",
+      "validations": {
+        "required": false
+      },
+      "inputMode": "datetime"
+    },
+    "poc_dropdown_required": {
+      "type": "vux-options-property",
+      "layout": {
+        "renderAs": "dropdown",
+        "orientation": "horizontal"
+      },
+      "mode": "static",
+      "validations": {
+        "required": true
+      },
+      "options": {
+        "option1": {},
+        "option2": {}
+      }
+    },
+    "poc_radiogroup_with_default": {
+      "type": "vux-options-property",
+      "layout": {
+        "renderAs": "radiogroup",
+        "orientation": "horizontal"
+      },
+      "validations": {
+        "required": true
+      },
+      "options": {
+        "option1": {
+          "default": true
+        },
+        "option2": {},
+        "option3": {
+          "inclusion": "always"
+        },
+        "option4": {}
+      }
+    },
+    "poc_checkboxgroup_with_max_select": {
+      "type": "vux-options-property",
+      "layout": {
+        "renderAs": "checkboxgroup",
+        "orientation": "vertical"
+      },
+      "validations": {
+        "required": true,
+        "maxoptions": 4,
+        "minoptions": 2
+      },
+      "options": {
+        "option1": {
+          "disabled": true
+        },
+        "option2": {},
+        "option3": {},
+        "option4": {
+          "default": true
+        }
+      }
+    }
+  },
+  "i18n": {
+    "poc_textproperty": {
+      "label": "Optional Text Input",
+      "label_tooltip": "Enter optional text here.",
+      "info_text": "This field can be left empty.",
+      "learn_more_url": "https://example.com/poc_textproperty",
+      "placeholder": ""
+    },
+    "poc_textproperty_disabled": {
+      "label": "Regular Text Input",
+      "label_tooltip": "Enter regular text here.",
+      "info_text": "This field can be left empty.",
+      "learn_more_url": "https://example.com/poc_regular_textproperty",
+      "placeholder": "",
+      "status": {
+        "disabled": {
+          "label": "Disabled Text Input",
+          "label_tooltip": "Disabled text here.",
+          "info_text": "This field is disabled.",
+          "learn_more_url": "https://example.com/poc_textproperty_disabled",
+          "placeholder": ""
+        }
+      }
+    },
+    "poc_textproperty_required": {
+      "label": "Required Text Input",
+      "label_tooltip": "You must enter a value.",
+      "info_text": "Required for submission.",
+      "learn_more_url": "https://example.com/poc_textproperty_required",
+      "validations": {
+        "required": "This text input is required."
+      },
+      "placeholder": ""
+    },
+    "poc_textproperty_maxlength_16": {
+      "label": "Limited Text Input",
+      "label_tooltip": "Maximum 16 characters allowed.",
+      "info_text": "Keep it short and concise.",
+      "learn_more_url": "https://example.com/poc_textproperty_maxlength_16",
+      "validations": {
+        "required": "This field is required.",
+        "maxlength": "Maximum length is 16 characters."
+      },
+      "placeholder": ""
+    },
+    "poc_textarea": {
+      "label": "Optional Textarea",
+      "label_tooltip": "Free-form multi-line text field.",
+      "info_text": "No validation rules here.",
+      "learn_more_url": "https://example.com/poc_textarea",
+      "placeholder": ""
+    },
+    "poc_textarea_rows_12": {
+      "label": "Textarea (12 Rows)",
+      "label_tooltip": "Large textarea with 12 rows.",
+      "info_text": "Used for long-form content.",
+      "learn_more_url": "https://example.com/poc_textarea_rows_12",
+      "placeholder": ""
+    },
+    "poc_textarea_required": {
+      "label": "Required Textarea",
+      "label_tooltip": "You must fill out this field.",
+      "info_text": "Used for detailed required input.",
+      "learn_more_url": "https://example.com/poc_textarea_required",
+      "validations": {
+        "required": "This textarea is required."
+      },
+      "placeholder": ""
+    },
+    "poc_checkbox": {
+      "label": "Optional Checkbox",
+      "label_tooltip": "Check if applicable.",
+      "info_text": "You can leave this unchecked.",
+      "learn_more_url": "https://example.com/poc_checkbox",
+      "placeholder": ""
+    },
+    "poc_checkbox_required": {
+      "label": "POC Required Checkbox",
+      "label_tooltip": "This is a required checkbox property for proof of concept.",
+      "info_text": "Agree is required to continue.",
+      "learn_more_url": "https://example.com/poc_checkbox_required",
+      "validations": {
+        "required": "This checkbox is required"
+      },
+      "placeholder": ""
+    },
+    "poc_checkbox_required_no_error_translation": {
+      "label": "POC Required Checkbox No Translation",
+      "label_tooltip": "This is a required checkbox property for proof of concept.",
+      "info_text": "Agree is required to continue.",
+      "learn_more_url": "https://example.com/poc_checkbox_required",
+      "validations": {},
+      "placeholder": ""
+    },
+    "poc_toggle": {
+      "label": "POC Toggle",
+      "label_tooltip": "This is toggle property for proof of concept.",
+      "info_text": "Agree is optional to continue.",
+      "learn_more_url": "https://example.com/poc_toggle",
+      "validations": {}
+    },
+    "poc_toggle_required": {
+      "label": "POC Toggle Required",
+      "label_tooltip": "This is a required toggle property for proof of concept.",
+      "info_text": "Agree is required to continue.",
+      "learn_more_url": "https://example.com/poc_toggle_required",
+      "validations": {
+        "required": "This toggle is required"
+      }
+    },
+    "poc_datepicker": {
+      "label": "POC Datepicker",
+      "label_tooltip": "Select a date for the proof of concept.",
+      "placeholder": "Select a date",
+      "info_text": "Date selection is optional.",
+      "learn_more_url": "https://example.com/poc_datepicker",
+      "validations": {}
+    },
+    "poc_datepicker_required": {
+      "label": "Required Datepicker",
+      "label_tooltip": "A required date is required for the proof of concept.",
+      "placeholder": "Select a required date",
+      "info_text": "Date selection is required.",
+      "learn_more_url": "https://example.com/poc_datepicker_required",
+      "validations": {
+        "required": "This date field is required."
+      }
+    },
+    "poc_timepicker": {
+      "label": "POC Timepicker",
+      "label_tooltip": "Select a time for the proof of concept.",
+      "placeholder": "Select a time",
+      "info_text": "Time selection is optional.",
+      "learn_more_url": "https://example.com/poc_timepicker",
+      "confirm": {
+        "label": "Apply"
+      },
+      "validations": {}
+    },
+    "poc_datetimepicker": {
+      "label": "POC Datetimepicker",
+      "label_tooltip": "Select both date and time for the proof of concept.",
+      "placeholder": "Select date & time",
+      "info_text": "Date and time selection is optional.",
+      "learn_more_url": "https://example.com/poc_datetimepicker",
+      "confirm": {
+        "label": "Apply"
+      },
+      "validations": {}
+    },
+    "poc_dropdown_required": {
+      "label": "POC Required Dropdown",
+      "label_tooltip": "Select one of the available options. This field is required.",
+      "placeholder": "Choose an option...",
+      "info_text": "Please select a value from the dropdown menu.",
+      "learn_more_url": "https://example.com/poc_dropdown_required",
+      "validations": {
+        "required": "You must select an option."
+      },
+      "options": {
+        "option1": {
+          "label": "Option 1",
+          "label_tooltip": "This is the first selectable option.",
+          "info_text": "Choose this option if it applies to your case.",
+          "learn_more_url": "https://example.com/poc_dropdown_required.option1",
+          "disabled": {
+            "label": "This option is currently disabled.",
+            "tooltip": "Option 1 cannot be selected at the moment."
+          }
+        },
+        "option2": {
+          "label": "Option 2",
+          "label_tooltip": "This is the second selectable option.",
+          "info_text": "Choose this option if it best fits your needs.",
+          "learn_more_url": "https://example.com/poc_dropdown_required.option2",
+          "disabled": {
+            "label": "This option is currently disabled.",
+            "tooltip": "Option 2 is unavailable."
+          }
+        }
+      }
+    },
+    "poc_radiogroup_with_default": {
+      "label": "POC Radio Group (Default Selected)",
+      "label_tooltip": "Choose one of the radio options. A default is pre-selected.",
+      "placeholder": "",
+      "info_text": "Only one option can be selected at a time.",
+      "learn_more_url": "https://example.com/poc_radiogroup_with_default",
+      "validations": {
+        "required": "Please choose one of the radio options."
+      },
+      "options": {
+        "option1": {
+          "label": "Option 1 (Default)",
+          "label_tooltip": "This option is selected by default.",
+          "info_text": "Recommended choice for most users.",
+          "learn_more_url": "https://example.com/poc_radiogroup_with_default.option1",
+          "disabled": {
+            "label": "This option is disabled.",
+            "tooltip": "Option 1 is disabled for your configuration."
+          }
+        },
+        "option2": {
+          "label": "Option 2",
+          "label_tooltip": "Second radio button choice.",
+          "info_text": "An alternative to the default option.",
+          "learn_more_url": "https://example.com/poc_radiogroup_with_default.option2",
+          "disabled": {
+            "label": "Disabled due to incompatible selection.",
+            "tooltip": "Option 2 is not available in your current setup."
+          }
+        },
+        "option3": {
+          "label": "Option 3",
+          "label_tooltip": "Third available choice.",
+          "info_text": "Select this if applicable.",
+          "learn_more_url": "https://example.com/poc_radiogroup_with_default.option3",
+          "disabled": {
+            "label": "Not available.",
+            "tooltip": "Option 3 has been disabled."
+          }
+        },
+        "option4": {
+          "label": "Option 4",
+          "label_tooltip": "Fourth available choice.",
+          "info_text": "Another valid alternative.",
+          "learn_more_url": "https://example.com/poc_radiogroup_with_default.option4",
+          "disabled": {
+            "label": "Option is disabled.",
+            "tooltip": "Option 4 is disabled in this context."
+          }
+        }
+      }
+    },
+    "poc_checkboxgroup_with_max_select": {
+      "label": "POC Checkbox Group (Min 2 / Max 4)",
+      "label_tooltip": "Select between 2 and 4 options. One option is selected by default.",
+      "placeholder": "",
+      "info_text": "You must select at least 2 and no more than 4 options.",
+      "learn_more_url": "https://example.com/poc_checkboxgroup_with_max_select",
+      "validations": {
+        "required": "Please select the required number of options.",
+        "minoptions": "You must select at least 2 options.",
+        "maxoptions": "You cannot select more than 4 options."
+      },
+      "options": {
+        "option1": {
+          "label": "Option 1",
+          "label_tooltip": "This is the first checkbox option.",
+          "info_text": "Tick this if applicable.",
+          "learn_more_url": "https://example.com/poc_checkboxgroup_with_max_select.option1",
+          "disabled": {
+            "label": "This checkbox is not available.",
+            "tooltip": "Option 1 is disabled for your user role."
+          }
+        },
+        "option2": {
+          "label": "Option 2",
+          "label_tooltip": "This is the second checkbox option.",
+          "info_text": "Consider selecting this option if it applies.",
+          "learn_more_url": "https://example.com/poc_checkboxgroup_with_max_select.option2",
+          "disabled": {
+            "label": "This option is inactive.",
+            "tooltip": "Option 2 has been disabled."
+          }
+        },
+        "option3": {
+          "label": "Option 3",
+          "label_tooltip": "This is the third checkbox option.",
+          "info_text": "You can include this option as part of your selection.",
+          "learn_more_url": "https://example.com/poc_checkboxgroup_with_max_select.option3",
+          "disabled": {
+            "label": "Option 3 is not selectable.",
+            "tooltip": "You cannot select this option."
+          }
+        },
+        "option4": {
+          "label": "Option 4 (Default Selected)",
+          "label_tooltip": "This option is selected by default.",
+          "info_text": "Uncheck this if it does not apply to you.",
+          "learn_more_url": "https://example.com/poc_checkboxgroup_with_max_select.option4",
+          "disabled": {
+            "label": "Default option disabled.",
+            "tooltip": "Option 4 is locked by configuration."
+          }
+        }
+      }
+    }
+  }
+}

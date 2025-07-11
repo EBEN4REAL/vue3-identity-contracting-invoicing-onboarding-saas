@@ -1,0 +1,55 @@
+.mm-link {
+  display: inline-flex;
+  align-items: center;
+  font-style: normal;
+  line-height: 24px; /* 150% */
+  text-decoration: none;
+  color: #072e51;
+
+  &-text-align {
+    &-left {
+      justify-content: flex-start;
+    }
+    &-center {
+      justify-content: center;
+    }
+    &-right {
+      justify-content: flex-end;
+    }
+  }
+
+  &-underline {
+    text-decoration: underline;
+  }
+
+  &-color {
+    &-primary {
+      color: #072e51;
+    }
+    &-secondary {
+      color: #475467;
+    }
+    &-gray {
+      color: #111927;
+    }
+    &-gray-600 {
+      color: #475467;
+    }
+    &-gray-700 {
+      color: #384250;
+    }
+    &-warning {
+      color: #b54708;
+    }
+    &-blue {
+      color: #175cd3;
+    }
+    &-blue-dim {
+      color: #1c5d97;
+    }
+  }
+
+  &-disabled {
+    pointer-events: none;
+  }
+}

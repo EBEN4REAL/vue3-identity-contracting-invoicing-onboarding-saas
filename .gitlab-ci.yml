@@ -1,0 +1,321 @@
+variables:
+  GIT_SUBMODULE_STRATEGY: normal
+  GIT_SUBMODULE_FORCE_HTTPS: "true"
+
+workflow:
+  rules:
+    - if: $CI_COMMIT_MESSAGE =~ /\[NO_BUILD\]/
+      when: never
+    - if: $CI_MERGE_REQUEST_IID
+    - if: $CI_COMMIT_TAG
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+    - if: $CI_COMMIT_REF_PROTECTED == "true"
+
+stages:
+  - prep
+  - test
+#  - coverage
+  - build-dev
+  - deploy-dev
+  - build-stg
+  - deploy-stg
+  - build-prd
+  - deploy-prd
+
+build_test_image_sc_front:
+  image: docker:20.10.16
+  stage: prep
+  services:
+    - docker:20.10.16-dind
+  when: manual
+  variables:
+    IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG-$CI_PIPELINE_IID
+    IMAGE_TAG_LATEST: $CI_REGISTRY_IMAGE:latest
+  script:
+    - docker login $CI_DEPLOY_REGISTRY -u $CI_GROUP_ID -p $CI_GROUP_TOKEN
+    - docker build --build-arg CI_GROUP_ID=${CI_GROUP_ID} --build-arg CI_JOB_TOKEN=${CI_JOB_TOKEN} -t $IMAGE_TAG -t $IMAGE_TAG_LATEST -t $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA .
+    - docker push $IMAGE_TAG
+    - docker push $IMAGE_TAG_LATEST
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
+
+snapshots_rebase_sc_front:
+  stage: prep
+  image: $CI_REGISTRY_IMAGE:latest
+  when: manual
+  before_script:
+    - npm run dev &
+  script:
+    - CYPRESS_COVERAGE=false CYPRESS_VISUAL_REGRESSION_TYPE=base MODE=ci npm run tests:chrome:snapshots:rebase
+  artifacts:
+    when: always
+    paths:
+      - cypress/snapshots/base
+  except:
+    - main
+
+changed_specs_sc_front:
+  stage: test
+  image: $CI_REGISTRY_IMAGE:latest
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      when: never
+    - if: $CI_COMMIT_MESSAGE =~ /\[NO_TESTS\]/
+      when: never
+    - if: $CI_COMMIT_TAG
+      when: never  # Do not run this job if it's a tag pipeline
+    - if: $CI_MERGE_REQUEST_IID || $CI_PIPELINE_SOURCE == "push"
+  before_script:
+    - export CI_BRANCH="${CI_COMMIT_BRANCH:-$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME}"
+    - echo $CI_BRANCH
+    - npm run lint:check
+    - npm run dev &
+  script:
+    - git fetch --no-tags --depth=1 origin $CI_BRANCH
+    - git fetch --no-tags --depth=1 origin $CI_DEFAULT_BRANCH
+    - git checkout origin/$CI_BRANCH
+    - git checkout origin/$CI_DEFAULT_BRANCH
+    - git checkout $CI_COMMIT_SHORT_SHA
+    - CHANGED_SPECS=$(git diff --diff-filter=aAcCmM --name-only origin/$CI_BRANCH origin/$CI_DEFAULT_BRANCH -- cypress/cucumber/features)
+    - echo $CHANGED_SPECS
+    - if [ -n "$CHANGED_SPECS" ]; then CYPRESS_COVERAGE=false MODE=ci npm run tests:chrome -- --spec $CHANGED_SPECS; fi;
+  artifacts:
+    when: always
+    paths:
+      - cypress/screenshots/**/*(failed).png
+      - cypress/snapshots/diff
+
+regression_test_sc_front:
+  stage: test
+  image: $CI_REGISTRY_IMAGE:latest
+  parallel: 3
+  when: manual
+  rules:
+    - if: $CI_COMMIT_REF_PROTECTED == "true"
+      when: never
+    - if: $CI_COMMIT_MESSAGE =~ /\[NO_TESTS\]/
+      when: never
+    - if: $CI_MERGE_REQUEST_IID || $CI_PIPELINE_SOURCE == "push"
+  before_script:
+    - npm run lint:check
+    - npm run dev &
+  script:
+    - MODE=ci npm run tests:chrome -- --spec cypress/cucumber/features/$CI_NODE_INDEX
+    - mv .nyc_output/out.json .nyc_output/out-$CI_NODE_INDEX.json
+  artifacts:
+    when: always
+    paths:
+      - .nyc_output/out-*.json
+      - cypress/screenshots/**/*(failed).png
+      - cypress/snapshots/diff
+
+test_sc_front:
+  stage: test
+  image: $CI_REGISTRY_IMAGE:latest
+#  parallel: 3
+  rules:
+    - if: $CI_COMMIT_REF_PROTECTED == "false"
+      when: never
+    - if: $CI_COMMIT_MESSAGE =~ /\[NO_TESTS\]/
+      when: never
+    - if: $CI_COMMIT_TAG
+      when: never
+    - when: always
+  before_script:
+    - npm run lint:check
+    - npm run dev &
+  script:
+    - echo "we are no longer running tests because we are cowboys"
+#    - MODE=ci npm run tests:chrome -- --spec cypress/cucumber/features/$CI_NODE_INDEX
+#    - mv .nyc_output/out.json .nyc_output/out-$CI_NODE_INDEX.json
+#  artifacts:
+#    when: always
+#    paths:
+#      - .nyc_output/out-*.json
+#      - cypress/screenshots/**/*(failed).png
+#      - cypress/snapshots/diff
+
+#regression_coverage_sc_front:
+#  stage: coverage
+#  image: $CI_REGISTRY_IMAGE:latest
+#  needs:
+#    - regression_test_sc_front
+#  rules:
+#    - if: $CI_COMMIT_REF_PROTECTED == "true"
+#      when: never
+#    - if: $CI_COMMIT_MESSAGE =~ /\[NO_TESTS\]/
+#      when: never
+#    - if: $CI_MERGE_REQUEST_IID || $CI_PIPELINE_SOURCE == "push"
+#  coverage: '/Statements\s*: \d+\.\d+/'
+#  script:
+#    - npm run coverage:merge
+#    - npm run coverage:report
+#  artifacts:
+#    when: always
+#    paths:
+#      - coverage/cobertura-coverage.xml
+#    reports:
+#      coverage_report:
+#        coverage_format: cobertura
+#        path: coverage/cobertura-coverage.xml
+
+#coverage_sc_front:
+#  stage: coverage
+#  image: $CI_REGISTRY_IMAGE:latest
+#  needs:
+#    - test_sc_front
+#  rules:
+#    - if: $CI_COMMIT_REF_PROTECTED == "false"
+#      when: never
+#    - if: $CI_COMMIT_MESSAGE =~ /\[NO_TESTS\]/
+#      when: never
+#    - if: $CI_COMMIT_TAG
+#      when: never
+#    - when: always
+#  coverage: '/Statements\s*: \d+\.\d+/'
+#  script:
+#    - npm run coverage:merge
+#    - npm run coverage:report
+#  artifacts:
+#    when: always
+#    paths:
+#      - coverage/cobertura-coverage.xml
+#    reports:
+#      coverage_report:
+#        coverage_format: cobertura
+#        path: coverage/cobertura-coverage.xml
+
+build_sc_front_dev:
+  stage: build-dev
+  image: node:20-alpine
+  rules:
+    - if: $CI_COMMIT_TAG
+      when: never 
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      when: always
+    - if: $CI_COMMIT_REF_PROTECTED == "true"
+      when: manual
+    - when: never
+  before_script:
+    - npm install vite
+  script:
+    - apk --no-cache add jq
+    - export STAGE=dev
+    - cat config/dev.json | jq --arg stage "$STAGE" --arg apidomain "$APIDOMAINNAME" --arg domain "$DOMAINNAME" --arg stripeKey "$DEV_STRIPE_PUBLISHABLE_KEY" '.app.name = "Acme inc." | .app.url="https://customer." + $domain | .spApp.url="https://admin." + $apidomain | .idp.url="https://idp." + $domain | .idp.clientId="dc742b28-47f6-11ee-be56-0242ac120002" | .idp.google.clientId="799808359545-8bsu29bmqp3t4rj5cot94q7sl7pioius.apps.googleusercontent.com" | .iam.url="https://api." + $apidomain | .onboarding.url="https://api." + $apidomain + "/onboarding" | .events.url="https://api." + $apidomain + "/events" | .policies.url="https://api." + $apidomain + "/policies" | .billing_and_invoicing.url="https://api." + $apidomain + "/billing_and_invoicing" | .contracting.url="https://api." + $apidomain + "/contracting" | .configuration.url="https://api." + $apidomain + "/configuration" | .mm.name="Acme Inc." | .unleash.url="https://api." + $apidomain + "/unleash/proxy" | .unleash.stage=$stage | .gtm.id="GTM-55XP36V4" | .stripe_publishable_key=$stripeKey' > src/mm.config.json
+    - cat src/mm.config.json
+    - npm run build-dev
+    - ./scripts/wait-for-index && mv dist dev_dist
+  artifacts:
+    paths:
+      - dev_dist
+  environment:
+    name: dev
+
+deploy_to_aws_dev:
+  stage: deploy-dev
+  image: python:3.11
+  tags:
+    - $DEPLOYMENT_ENVIRONMENT_DEV
+  rules:
+    - if: $CI_COMMIT_TAG
+      when: never 
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      when: always
+    - if: $CI_COMMIT_REF_PROTECTED == "true"
+      when: manual
+    - when: never 
+  script:
+    - apt update
+    - apt install jq -y
+    - pip install awscli
+    - export WEB_BUCKET_NAME=$(aws ssm get-parameter --name "${DEPLOYMENT_ENVIRONMENT_DEV}-ConsumerWebBucketName" --region $AWS_REGION --output text --query Parameter.Value --with-decryption)
+    - export DISTRIBUTION_ID=$(aws ssm get-parameter --name "${DEPLOYMENT_ENVIRONMENT_DEV}-CustomerCloudFrontDistribution" --region $AWS_REGION --output text --query Parameter.Value --with-decryption)
+    - aws s3 sync dev_dist/ s3://$WEB_BUCKET_NAME --delete
+    - aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*"
+  environment:
+    name: dev
+
+build_sc_front:stg:
+  stage: build-stg
+  image: node:20-alpine
+  rules:
+    - if: $CI_COMMIT_TAG =~ /^v\d+.\d+.\d+-.+$/
+      when: on_success
+    - when: never
+  before_script:
+    - npm install vite
+  script:
+    - apk --no-cache add jq
+    - export STAGE=stg
+    - cat config/dev.json | jq --arg stage "$STAGE" --arg apidomain "$APIDOMAINNAME" --arg domain "$DOMAINNAME" --arg stripeKey "$STAGING_STRIPE_PUBLISHABLE_KEY" '.app.name = "STG Acme inc." | .app.url="https://customer." + $domain | .spApp.url="https://admin." + $apidomain | .idp.url="https://idp." + $domain | .idp.clientId="aedcaec0-ebb6-4727-87ef-03b9143077a7" | .idp.google.clientId="799808359545-8bsu29bmqp3t4rj5cot94q7sl7pioius.apps.googleusercontent.com" | .iam.url="https://api." + $apidomain | .onboarding.url="https://api." + $apidomain + "/onboarding" | .events.url="https://api." + $apidomain + "/events" | .policies.url="https://api." + $apidomain + "/policies" | .billing_and_invoicing.url="https://api." + $apidomain + "/billing_and_invoicing" | .contracting.url="https://api." + $apidomain + "/contracting" | .configuration.url="https://api." + $apidomain + "/configuration" | .mm.name="STG Acme Inc." | .unleash.url="https://api." + $apidomain + "/unleash/proxy" | .unleash.stage=$stage | .gtm.id="GTM-PQXK5HXP" | .stripe_publishable_key=$stripeKey' > src/mm.config.json
+    - cat src/mm.config.json
+    - npm version --no-git-tag-version ${CI_COMMIT_TAG:1}
+    - npm run build-staging
+    - ./scripts/wait-for-index && mv dist stg_dist
+  artifacts:
+    paths:
+      - stg_dist
+  environment:
+    name: stg
+
+deploy_to_aws:stg:
+  stage: deploy-stg
+  tags:
+    - $DEPLOYMENT_ENVIRONMENT_STG
+  image: python:3.11
+  rules:
+    - if: $CI_COMMIT_TAG =~ /^v\d+.\d+.\d+-.+$/
+      when: on_success
+    - when: never
+  script:
+    - apt update
+    - apt install jq -y
+    - pip install awscli
+    - export WEB_BUCKET_NAME=$(aws ssm get-parameter --name "${DEPLOYMENT_ENVIRONMENT_STG}-ConsumerWebBucketName" --region $AWS_REGION --output text --query Parameter.Value --with-decryption)
+    - export DISTRIBUTION_ID=$(aws ssm get-parameter --name "${DEPLOYMENT_ENVIRONMENT_STG}-CustomerCloudFrontDistribution" --region $AWS_REGION --output text --query Parameter.Value --with-decryption)
+    - aws s3 sync stg_dist/ s3://$WEB_BUCKET_NAME --delete
+    - aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*"
+  environment:
+    name: stg
+
+build_sc_front:prd:
+  stage: build-prd
+  image: node:20-alpine
+  rules:
+    - if: $CI_COMMIT_TAG =~ /^v\d+.\d+.\d+$/
+      when: on_success
+    - when: never
+  before_script:
+    - npm install vite
+  script:
+    - apk --no-cache add jq
+    - export STAGE=prd
+    - cat config/dev.json | jq --arg stage "$STAGE" --arg apidomain "$APIDOMAINNAME" --arg domain "$DOMAINNAME" --arg stripeKey "$PROD_STRIPE_PUBLISHABLE_KEY" '.app.name = "Veriam" | .app.url="https://customer." + $domain | .spApp.url="https://admin." + $apidomain | .idp.url="https://idp." + $domain | .idp.clientId="60eaa477-1020-451c-ae4e-b460fd1e3d49" | .idp.google.clientId="102853759553-ba67osftkcgi55cb202efvisq9niqquu.apps.googleusercontent.com" | .iam.url="https://api." + $apidomain | .onboarding.url="https://api." + $apidomain + "/onboarding" | .events.url="https://api." + $apidomain + "/events" | .policies.url="https://api." + $apidomain + "/policies" | .billing_and_invoicing.url="https://api." + $apidomain + "/billing_and_invoicing" | .contracting.url="https://api." + $apidomain + "/contracting" | .configuration.url="https://api." + $apidomain + "/configuration" | .mm.name="Veriam" | .unleash.url="https://api." + $apidomain + "/unleash/proxy" | .unleash.stage=$stage | .gtm.id="GTM-5K7CMJSC" | .stripe_publishable_key=$stripeKey' > src/mm.config.json
+    - cat src/mm.config.json
+    - npm version --no-git-tag-version ${CI_COMMIT_TAG:1}
+    - npm run build
+    - ./scripts/wait-for-index && mv dist prd_dist
+  artifacts:
+    paths:
+      - prd_dist
+  environment:
+    name: prd
+
+deploy_to_aws:prd:
+  stage: deploy-prd
+  tags:
+    - $DEPLOYMENT_ENVIRONMENT_PRD
+  image: python:3.11
+  rules:
+    - if: $CI_COMMIT_TAG =~ /^v\d+.\d+.\d+$/
+      when: on_success
+    - when: never
+  script:
+    - apt update
+    - apt install jq -y
+    - pip install awscli
+    - export WEB_BUCKET_NAME=$(aws ssm get-parameter --name "${DEPLOYMENT_ENVIRONMENT_PRD}-ConsumerWebBucketName" --region $AWS_REGION --output text --query Parameter.Value --with-decryption)
+    - export DISTRIBUTION_ID=$(aws ssm get-parameter --name "${DEPLOYMENT_ENVIRONMENT_PRD}-CustomerCloudFrontDistribution" --region $AWS_REGION --output text --query Parameter.Value --with-decryption)
+    - aws s3 sync prd_dist/ s3://$WEB_BUCKET_NAME --delete
+    - aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*"
+  environment:
+    name: prd

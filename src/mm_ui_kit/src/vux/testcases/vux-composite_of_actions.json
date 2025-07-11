@@ -1,0 +1,477 @@
+{
+  "name": "T12. Composite of actions",
+  "description": "Composite actions layout.",
+  "mode": "edit",
+  "section_expanded": false,
+  "expand_on_load": false,
+  "status": "pending",
+  "model": {
+    "poc_action_with_text": {
+      "poc_action_default": {},
+      "poc_action_disabled": {},
+      "poc_action_waiting": {},
+      "poc_action_hidden": {}
+    },
+    "poc_action_icon":  {
+      "poc_action_default": {},
+      "poc_action_disabled": {},
+      "poc_action_waiting": {},
+      "poc_action_hidden": {}
+    }
+  },
+  "metadata": {
+    "type": "vux-component-group",
+    "layout": {
+      "orientation": "horizontal"
+    },
+    "poc_action_with_text": {
+      "type": "vux-component-group",
+      "layout": {
+        "orientation": "vertical"
+      },
+      "poc_action_default": {
+        "type": "vux-component-group",
+        "layout": {
+          "orientation": "vertical"
+        },
+        "actions": {
+          "delete": {
+            "style": "delete"
+          },
+          "edit": {
+            "style": "edit"
+          }
+        }
+      },
+      "poc_action_disabled": {
+        "type": "vux-component-group",
+        "layout": {
+          "orientation": "vertical"
+        },
+        "actions": {
+          "delete": {
+            "style": "delete",
+            "status": {
+              "disabled": true
+            }
+          },
+          "edit": {
+            "style": "edit",
+            "status": {
+              "disabled": true
+            }
+          }
+        }
+      },
+      "poc_action_waiting": {
+        "type": "vux-component-group",
+        "layout": {
+          "orientation": "vertical"
+        },
+        "actions": {
+          "delete": {
+            "style": "delete",
+            "status": {
+              "waiting": true
+            }
+          },
+          "edit": {
+            "style": "edit",
+            "status": {
+              "waiting": true
+            }
+          }
+        }
+      },
+      "poc_action_hidden": {
+        "type": "vux-component-group",
+        "layout": {
+          "orientation": "vertical"
+        },
+        "actions": {
+          "delete": {
+            "style": "delete",
+            "status": {
+              "hidden": true
+            }
+          }
+        }
+      }
+    },
+    "poc_action_icon": {
+      "type": "vux-component-group",
+      "layout": {
+        "orientation": "vertical"
+      },
+      "poc_action_default": {
+        "type": "vux-component-group",
+        "layout": {
+          "orientation": "vertical"
+        },
+        "actions": {
+          "delete": {
+            "style": "delete"
+          },
+          "plusIcon": {
+            "style": "create"
+          },
+          "edit": {
+            "style": "edit"
+          }
+        }
+      },
+      "poc_action_disabled": {
+        "type": "vux-component-group",
+        "layout": {
+          "orientation": "vertical"
+        },
+        "actions": {
+          "delete": {
+            "style": "delete",
+            "status": {
+              "disabled": true
+            }
+          },
+          "plusIcon": {
+            "style": "create",
+            "status": {
+              "disabled": true
+            }
+          },
+          "edit": {
+            "style": "edit",
+            "status": {
+              "disabled": true
+            }
+          }
+        }
+      },
+      "poc_action_waiting": {
+        "type": "vux-component-group",
+        "layout": {
+          "orientation": "vertical"
+        },
+        "actions": {
+          "delete": {
+            "style": "delete",
+            "status": {
+              "waiting": true
+            }
+          },
+          "plusIcon": {
+            "style": "create",
+            "status": {
+              "waiting": true
+            }
+          },
+          "edit": {
+            "style": "edit",
+            "status": {
+              "waiting": true
+            }
+          }
+        }
+      }
+    }
+  },
+"i18n": {
+  "poc_action_with_text": {
+    "poc_action_default": {
+      "actions": {
+        "delete": {
+          "label": "Delete",
+          "tooltip": "Click to delete.",
+          "status": {
+            "disabled": {
+              "label": "Delete",
+              "tooltip": "Disabled."
+            },
+            "waiting": {
+              "label": "Delete",
+              "tooltip": "Waiting."
+            }
+          }
+        },
+        "plusIcon": {
+          "label": "Add",
+          "tooltip": "Click to add.",
+          "status": {
+            "disabled": {
+              "label": "Add",
+              "tooltip": "Disabled."
+            },
+            "waiting": {
+              "label": "Add",
+              "tooltip": "Waiting."
+            }
+          }
+        },
+        "edit": {
+          "label": "Edit",
+          "tooltip": "Click to edit.",
+          "status": {
+            "disabled": {
+              "label": "Edit",
+              "tooltip": "Disabled."
+            },
+            "waiting": {
+              "label": "Edit",
+              "tooltip": "Waiting."
+            }
+          }
+        }
+      }
+    },
+    "poc_action_disabled": {
+      "actions": {
+        "delete": {
+          "label": "Delete",
+          "tooltip": "Click to delete.",
+          "status": {
+            "disabled": {
+              "label": "Delete",
+              "tooltip": "Disabled."
+            },
+            "waiting": {
+              "label": "Delete",
+              "tooltip": "Waiting."
+            }
+          }
+        },
+        "plusIcon": {
+          "label": "Add",
+          "tooltip": "Click to add.",
+          "status": {
+            "disabled": {
+              "label": "Add",
+              "tooltip": "Disabled."
+            },
+            "waiting": {
+              "label": "Add",
+              "tooltip": "Waiting."
+            }
+          }
+        },
+        "edit": {
+          "label": "Edit",
+          "tooltip": "Click to edit.",
+          "status": {
+            "disabled": {
+              "label": "Edit",
+              "tooltip": "Disabled."
+            },
+            "waiting": {
+              "label": "Edit",
+              "tooltip": "Waiting."
+            }
+          }
+        }
+      }
+    },
+    "poc_action_waiting": {
+      "actions": {
+        "delete": {
+          "label": "Delete",
+          "tooltip": "Click to delete.",
+          "status": {
+            "disabled": {
+              "label": "Delete",
+              "tooltip": "Disabled."
+            },
+            "waiting": {
+              "label": "Delete",
+              "tooltip": "Waiting."
+            }
+          }
+        },
+        "plusIcon": {
+          "label": "Add",
+          "tooltip": "Click to add.",
+          "status": {
+            "disabled": {
+              "label": "Add",
+              "tooltip": "Disabled."
+            },
+            "waiting": {
+              "label": "Add",
+              "tooltip": "Waiting."
+            }
+          }
+        },
+        "edit": {
+          "label": "Edit",
+          "tooltip": "Click to edit.",
+          "status": {
+            "disabled": {
+              "label": "Edit",
+              "tooltip": "Disabled."
+            },
+            "waiting": {
+              "label": "Edit",
+              "tooltip": "Waiting."
+            }
+          }
+        }
+      }
+    },
+    "poc_action_hidden": {
+      "actions": {
+        "delete": {
+          "label": "Delete",
+          "tooltip": "Click to delete.",
+          "status": {
+            "disabled": {
+              "label": "Delete",
+              "tooltip": "Disabled."
+            },
+            "waiting": {
+              "label": "Delete",
+              "tooltip": "Waiting."
+            }
+          }
+        }
+      }
+    }
+  },
+  "poc_action_icon": {
+    "poc_action_default": {
+      "actions": {
+        "delete": {
+          "label": "",
+          "tooltip": "Click to delete.",
+          "status": {
+            "disabled": {
+              "label": "Delete",
+              "tooltip": "Disabled."
+            },
+            "waiting": {
+              "label": "Delete",
+              "tooltip": "Waiting."
+            }
+          }
+        },
+        "plusIcon": {
+          "label": "",
+          "tooltip": "Click to add.",
+          "status": {
+            "disabled": {
+              "label": "Add",
+              "tooltip": "Disabled."
+            },
+            "waiting": {
+              "label": "Add",
+              "tooltip": "Waiting."
+            }
+          }
+        },
+        "edit": {
+          "label": "",
+          "tooltip": "Click to edit.",
+          "status": {
+            "disabled": {
+              "label": "Edit",
+              "tooltip": "Disabled."
+            },
+            "waiting": {
+              "label": "Edit",
+              "tooltip": "Waiting."
+            }
+          }
+        }
+      }
+    },
+    "poc_action_disabled": {
+      "actions": {
+        "delete": {
+          "label": "",
+          "tooltip": "Click to delete.",
+          "status": {
+            "disabled": {
+              "label": "Delete",
+              "tooltip": "Disabled."
+            },
+            "waiting": {
+              "label": "Delete",
+              "tooltip": "Waiting."
+            }
+          }
+        },
+        "plusIcon": {
+          "label": "",
+          "tooltip": "Click to add.",
+          "status": {
+            "disabled": {
+              "label": "Add",
+              "tooltip": "Disabled."
+            },
+            "waiting": {
+              "label": "Add",
+              "tooltip": "Waiting."
+            }
+          }
+        },
+        "edit": {
+          "label": "",
+          "tooltip": "Click to edit.",
+          "status": {
+            "disabled": {
+              "label": "Edit",
+              "tooltip": "Disabled."
+            },
+            "waiting": {
+              "label": "Edit",
+              "tooltip": "Waiting."
+            }
+          }
+        }
+      }
+    },
+    "poc_action_waiting": {
+      "actions": {
+        "delete": {
+          "label": "",
+          "tooltip": "Click to delete.",
+          "status": {
+            "disabled": {
+              "label": "Delete",
+              "tooltip": "Disabled."
+            },
+            "waiting": {
+              "label": "Delete",
+              "tooltip": "Waiting."
+            }
+          }
+        },
+        "plusIcon": {
+          "label": "",
+          "tooltip": "Click to add.",
+          "status": {
+            "disabled": {
+              "label": "Add",
+              "tooltip": "Disabled."
+            },
+            "waiting": {
+              "label": "Add",
+              "tooltip": "Waiting."
+            }
+          }
+        },
+        "edit": {
+          "label": "",
+          "tooltip": "Click to edit.",
+          "status": {
+            "disabled": {
+              "label": "Edit sloooww",
+              "tooltip": "Disabled."
+            },
+            "waiting": {
+              "label": "Edit waiting...",
+              "tooltip": "Waiting."
+            }
+          }
+        }
+      }
+    }
+  }
+}
+}

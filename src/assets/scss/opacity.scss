@@ -1,0 +1,26 @@
+ //.mm-opacity-5 = opacity: 0.05
+ //.mm-opacity-10 = opacity: 0.1
+ //.mm-opacity-15 = opacity: 0.15
+ //.mm-opacity-20 = opacity: 0.2
+ //.mm-opacity-25 = opacity: 0.25
+ //.mm-opacity-30 = opacity: 0.3
+ //.mm-opacity-35 = opacity: 0.35
+ //.mm-opacity-40 = opacity: 0.4
+ //.mm-opacity-45 = opacity: 0.45
+ //.mm-opacity-50 = opacity: 0.5
+ //.mm-opacity-55 = opacity: 0.55
+ //.mm-opacity-60 = opacity: 0.6
+ //.mm-opacity-65 = opacity: 0.65
+ //.mm-opacity-70 = opacity: 0.7
+ //.mm-opacity-75 = opacity: 0.75
+ //.mm-opacity-80 = opacity: 0.8
+ //.mm-opacity-85 = opacity: 0.85
+ //.mm-opacity-90 = opacity: 0.9
+ //.mm-opacity-95 = opacity: 0.95
+ //.mm-opacity-100 = opacity: 1
+
+@for $i from 1 through 20 {
+  .mm-opacity-#{($i*0.5)*10} {
+    opacity: calc(($i/10)*0.5);
+  }
+}

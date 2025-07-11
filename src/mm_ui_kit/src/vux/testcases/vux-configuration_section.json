@@ -1,0 +1,112 @@
+{
+  "name": "T11. Test configuration section",
+  "description": "Demonstrates configuration section",
+  "mode": "view",
+  "section_expanded": false,
+  "expand_on_load": true,
+  "status": "new",
+  "model": {
+    "id": "b82fbbd0-e9d1-4fdf-8621-c49749f8a68f",
+    "type": {
+      "id": "0883ded8-a492-42d0-b63e-821927f79b23",
+      "name": "RoleBasedAccess"
+    },
+    "status": "DRAFT",
+    "sync_status": "SUCCESS",
+    "publish_status": null
+  },
+  "metadata": {
+    "type": "vux-component-group",
+    "section": {
+      "type": "vux-configuration-section",
+      "data": {
+        "type": "vux-component-group",
+        "roles": {
+          "type": "vux-component-list",
+          "name": {
+            "type": "vux-input-property",
+            "validations": { "required": true },
+            "default": {
+              "value": "default from metadata"
+            }
+          },
+          "description": {
+            "type": "vux-input-property",
+            "validations": {},
+            "default": {
+              "value": "default from metadata"
+            }
+          }
+        }
+      },
+      "actions": {
+        "edit": {
+          "showInEdit": true,
+          "audience": "vux-configuration_section.section",
+          "random_field_1": "The VUX framework allows you to parameterise actions in metadata, and provide the information required to it.",
+          "random_field_2": "The handle action emit provides the fieldname (e.g. edit), this action definition and the object on which this action is executed."
+        },
+        "save": {
+          "audience": "vux-configuration_section.section",
+          "random_field_1": "The VUX framework allows you to parameterise actions in metadata, and provide the information required to it.",
+          "random_field_2": "The handle action emit provides the fieldname (e.g. save), this action definition and the object on which this action is executed."
+        },
+        "discard": {
+          "audience": "vux-configuration_section.section",
+          "random_field_1": "The VUX framework allows you to parameterise actions in metadata, and provide the information required to it.",
+          "random_field_2": "The handle action emit provides the fieldname (e.g. discard), this action definition and the object on which this action is executed."
+        }
+      }
+    }
+  },
+  "i18n": {
+    "section": {
+      "data": {
+        "roles": {
+          "name": {
+            "label": "Name",
+            "label_tooltip": "You must fill this field.",
+            "info_text": "Critical for form processing.",
+            "learn_more_url": "https://example.com/row2/input1",
+            "validations": {
+              "required": "This field is required."
+            }
+          },
+          "description": {
+            "label": "Description",
+            "label_tooltip": "Provide optional short text.",
+            "info_text": "No validation required.",
+            "learn_more_url": "https://example.com/poc_textproperty"
+          },
+          "actions": {
+            "delete": {
+              "label": "",
+              "tooltip": "Delete this row from the array."
+            },
+            "new": {
+              "label": "Create",
+              "tooltip": "Add a new row to the array."
+            }
+          }
+        }
+      },
+      "actions": {
+        "edit": {
+          "label": "edit",
+          "description": "Edit",
+          "tooltip": "Click to Edit."
+        },
+        "save": {
+          "label": "save",
+          "description": "Save",
+          "tooltip": "Click to Save."
+        },
+        "discard": {
+          "label": "discard",
+          "description": "Discard",
+          "tooltip": "Click to Discard."
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+$fontWeights: (
+  'Regular': 400,
+  'Medium': 500,
+  'SemiBold': 600,
+  'Bold': 700,
+  'Heavy': 800,
+  'Thin': 100,
+  'Light': 300
+);
+
+$fontStyles: (
+  '': normal,
+  'Italic': italic
+);
+
+@each $fontWeight, $weight in $fontWeights {
+  @each $fontStyle, $style in $fontStyles {
+    @font-face {
+      font-family: 'Haffer';
+      src: url('~/assets/fonts/Haffer/Haffer-#{$fontWeight}#{$fontStyle}.otf') format('opentype');
+      font-weight: $weight;
+      font-style: $style;
+    }
+  }
+  .font-weight-#{$weight} {
+    font-weight: $weight;
+  }
+}
+
+// define classes for font sizes up to 100px
+@for $i from 1 through 100 {
+  .mm-fs-#{$i} {
+    font-size: #{$i}px;
+  }
+  .mm-fs-#{$i}px {
+    font-size: #{$i}px;
+  }
+}
+
+// define classes for font weights
+@each $fontWeight, $weight in $fontWeights {
+  .mm-fw-#{$weight} {
+    font-weight: $weight;
+  }
+}

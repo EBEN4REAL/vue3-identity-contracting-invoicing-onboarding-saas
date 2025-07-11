@@ -1,0 +1,79 @@
+@use 'sass:math';
+@use "~/mm_ui_kit/src/assets/scss/breakpoints.scss" as *;
+
+// Define breakpoints map using imported variables
+$breakpoints: (
+  xs: $breakpoint-xs,
+  sm: $breakpoint-sm,
+  md: $breakpoint-md,
+  lg: $breakpoint-lg,
+  xl: $breakpoint-xl
+);
+
+// Container mixin
+@mixin container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @each $breakpoint, $value in $breakpoints {
+    @if $value != 0 {
+      @media (min-width: $value) {
+        max-width: $value;
+      }
+    }
+  }
+}
+
+// Row mixin
+@mixin row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+// Column mixin
+@mixin col($columns: 12) {
+  @each $breakpoint, $value in $breakpoints {
+    @if $value != 0 {
+      @media (min-width: $value) {
+        @for $i from 1 through $columns {
+          .col-#{$breakpoint}-#{$i} {
+            position: relative;
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            flex: 0 0 math.percentage(math.div($i, $columns));
+            max-width: math.percentage(math.div($i, $columns));
+          }
+        }
+      }
+    } @else {
+      @for $i from 1 through $columns {
+        .col-#{$i} {
+          position: relative;
+          width: 100%;
+          padding-right: 15px;
+          padding-left: 15px;
+          flex: 0 0 math.percentage(math.div($i, $columns));
+          max-width: math.percentage(math.div($i, $columns));
+        }
+      }
+    }
+  }
+}
+
+// Generate classes
+.container {
+  @include container;
+}
+
+.row {
+  @include row;
+}
+
+// Apply the col mixin to generate column classes
+@include col(12);

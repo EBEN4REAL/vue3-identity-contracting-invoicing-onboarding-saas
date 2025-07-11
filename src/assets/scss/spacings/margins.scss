@@ -1,0 +1,76 @@
+$margins_coefficient: 2px;
+$margins_iterations: 32;
+
+@for $i from 1 through $margins_iterations {
+  $value: $margins_coefficient * $i;
+
+  .mm-mt-n#{$i} {
+    margin-top: $value;
+  }
+  .mm-mb-n#{$i} {
+    margin-bottom: $value;
+  }
+  .mm-mr-n#{$i} {
+    margin-right: $value;
+  }
+  .mm-ml-n#{$i} {
+    margin-left: $value;
+  }
+
+  .mm-mt-#{$i} {
+    margin-top: $value;
+  }
+  .mm-mb-#{$i} {
+    margin-bottom: $value;
+  }
+  .mm-mr-#{$i} {
+    margin-right: $value;
+  }
+  .mm-ml-#{$i} {
+    margin-left: $value;
+  }
+
+  .mm-mx-#{$i} {
+    margin-right: $value;
+    margin-left: $value;
+  }
+  .mm-my-#{$i} {
+    margin-top: $value;
+    margin-bottom: $value;
+  }
+  .mm-ma-#{$i} {
+    margin: $value;
+  }
+}
+
+$properties: (
+  'mt': 'top',
+  'mb': 'bottom',
+  'mr': 'right',
+  'ml': 'left',
+);
+
+// Loop through the properties and generate the styles
+@each $property, $direction in $properties {
+  .mm-#{$property}-auto {
+    margin-#{$direction}: auto;
+  }
+}
+
+.mm-mx-auto {
+  margin-right: auto;
+  margin-left: auto;
+}
+.mm-my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.mm-ma-auto {
+  margin: auto;
+}
+.mm-mr-auto {
+  margin-right: auto;
+}
+.mm-ml-auto {
+  margin-left: auto;
+}

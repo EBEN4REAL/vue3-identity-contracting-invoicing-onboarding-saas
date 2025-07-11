@@ -1,0 +1,271 @@
+{
+  "onboarding": {
+    "check_email": {
+      "title": "Check your email",
+      "subtitle": "Check your inbox at {{ userEmail }} to verify your email and continue with your free account.",
+      "subtitle_no_account": "Heads up! You don't have a Veriam account yet. Check your inbox at {{ userEmail }} to verify your email and continue with your free account."
+    },
+    "confirmation": {
+      "title": "Your email was verified",
+      "subtitle_password": "Please enter your new password",
+      "subtitle_success": "You can now log in to your account"
+    },
+    "user_details": {
+      "title": "Step 1: About yourself",
+      "subtitle": "This helps us personalize your experience"
+    },
+    "invite_colleagues": {
+      "title": "Invite your team",
+      "subtitle": "Send your colleagues an email invite"
+    },
+    "org_details": {
+      "title": "Step 2: Almost done! Tell us about your organization",
+      "subtitle": "Provide the following organization information to finish onboarding"
+    }
+  },
+  "login": {
+    "title": "Welcome to {{accountName}}",
+    "subtitle": "We use Veriam to secure your identity"
+  },
+  "singup": {
+    "title": "Welcome to {{accountName}}",
+    "subtitle": "We use Veriam to secure your identity"
+  },
+  "password": {
+    "title": "Password",
+    "subtitle": "Please enter your password"
+  },
+  "select_organization": {
+    "title": "Select organization",
+    "subtitle": "Which organization do you want to log in with?"
+  },
+  "getting_started": {
+    "nav_label": "Getting started",
+    "title": "Welcome {{ userName }}",
+    "subtitle": "Get set up in just a few minutes with the steps below"
+  },
+  "profile": {
+    "nav_label": "Profile",
+    "title": "My profile",
+    "subtitle": "View and manage all your information in one place.",
+    "edit_button": {
+      "label": "Edit details",
+      "type": "small",
+      "variant": "outlined",
+      "prependIcon": "pencil",
+      "appendIcon": ""
+    },
+    "cancel_button": {
+      "label": "Cancel",
+      "type": "small",
+      "variant": "outlined",
+      "prependIcon": "",
+      "appendIcon": ""
+    },
+    "save_button": {
+      "label": "Save",
+      "type": "small",
+      "variant": "elevated",
+      "prependIcon": "",
+      "appendIcon": ""
+    }
+  },
+  "security": {
+    "nav_label": "Security",
+    "title": "Account security"
+  },
+  "my_access": {
+    "nav_label": "My access",
+    "title": "My access",
+    "subtitle": "All subscriptions, licenses and access policies you have available to access products of Veriam providers.",
+    "subscriptions": {
+      "subtitle": "Your subscriptions from Veriam providers to access their products."
+    },
+    "access_licenses": {
+      "subtitle": "Access licenses assigned to your organization by Veriam providers to access their products."
+    },
+    "policies": {
+      "subtitle": "Policies and roles assigned to you by Veriam providers to access their products."
+    }
+  },
+  "organization": {
+    "nav_label": "Organization",
+    "title": "{{organizationName}}",
+    "subtitle": "Manage your organization details"
+  },
+  "users": {
+    "nav_label": "Users",
+    "overview": {
+      "title": "Users",
+      "subtitle": "Manage the users of your organization, including inviting new users, enable/disable and deleting users, password resets, and assigning access rights",
+      "invite_users": {
+        "label": "Invite users",
+        "type": "small",
+        "variant": "elevated",
+        "prependIcon": "plus-white",
+        "appendIcon": ""
+      },
+      "import_users": {
+        "label": "Import users",
+        "type": "small",
+        "variant": "outlined",
+        "prependIcon": "cloud-arrow-down",
+        "appendIcon": ""
+      }
+    },
+    "user_details": {
+      "title": "{{userName}}",
+      "subtitle": "{{userEmail}}"
+    }
+  },
+  "groups": {
+    "nav_label": "Groups",
+    "overview": {
+      "title": "Groups",
+      "subtitle": "Groups allow you to easily manage a set of users. Users can belong to multiple groups",
+      "create_group": {
+        "label": "Create group",
+        "type": "small",
+        "variant": "elevated",
+        "prependIcon": "plus-white",
+        "appendIcon": ""
+      }
+    },
+    "group_details": {
+      "title": "{{groupName}}",
+      "subtitle": "{{groupDescription}}"
+    }
+  },
+  "org_units": {
+    "nav_label": "Organizational units",
+    "overview": {
+      "title": "Organizational units",
+      "subtitle": "Organizational units are used to represent your organizational hierarchy. Users can only belong to one organizational unit"
+    },
+    "org_unit_details": {
+      "title": "{{organizationUnitName}}",
+      "subtitle": "{{organizationUnitDescription}}"
+    }
+  },
+  "access_licenses": {
+    "nav_label": "Access Licenses",
+    "overview": {
+      "title": "Access licenses",
+      "subtitle": "All access licenses available to your organization"
+    },
+    "access_license_details": {
+      "title": "{{licenseName}} from {{orgName}}",
+      "subtitle": "All your {{subscriptionOrLicense}} activity"
+    }
+  },
+  "subscriptions": {
+    "nav_label": "Subscriptions",
+    "overview": {
+      "title": "Subscriptions",
+      "subtitle": "All subscriptions for your organization"
+    }
+  },
+  "logs": {
+    "nav_label": "Logs",
+    "title": "Logs",
+    "subtitle": "Detailed view of logged events"
+  },
+  "provide_support": {
+    "nav_label": "Provide support",
+    "title": "Log in as a support partner",
+    "subtitle": "Please select the organization and <br />continue logging in"
+  },
+  "admin": {
+    "nav_label": "Admin",
+    "title": "Admin",
+    "subtitle": "Overview of the entities that can be managed in Veriam"
+  },
+  "admin_agreement_types": {
+    "nav_label": "Agreement Types",
+    "title": "Agreement types",
+    "subtitle": "Manage the agreement types that are available within Veriam"
+  },
+  "admin_applications": {
+    "nav_label": "Applications",
+    "title": "Applications",
+    "subtitle": "Manage the applications that are available within Veriam"
+  },
+  "admin_attribute_types": {
+    "nav_label": "Attribute Types",
+    "title": "Attribute types",
+    "subtitle": "Manage the attribute types that are available within Veriam",
+    "create_attribute_type_button": {
+      "label": "Create attribute type",
+      "type": "small",
+      "variant": "outlined",
+      "prependIcon": "plus",
+      "appendIcon": ""
+    }
+  },
+  "admin_configs": {
+    "nav_label": "Configs",
+    "title": "Configs",
+    "subtitle": "Manage the configs that are available within Veriam"
+  },
+  "admin_legal_document_types": {
+    "nav_label": "Legal Document Types",
+    "title": "Legal Document Types",
+    "subtitle": "Manage the legal document types that are available within Veriam"
+  },
+  "admin_login_attempts": {
+    "nav_label": "Login Attempts",
+    "title": "Login Attempts",
+    "subtitle": "Manage the login attempts that are available within Veriam"
+  },
+  "admin_logs": {
+    "nav_label": "Logs",
+    "title": "Logs",
+    "subtitle": "Manage the logs that are available within Veriam"
+  },
+  "admin_organizations": {
+    "nav_label": "Organizations",
+    "title": "Organizations",
+    "subtitle": "Manage the organizations that are available within Veriam"
+  },
+  "admin_policies": {
+    "nav_label": "Policies",
+    "title": "Policies",
+    "subtitle": "Manage the policies that are available within Veriam"
+  },
+  "admin_policy_types": {
+    "nav_label": "Policy Types",
+    "title": "Policy types",
+    "subtitle": "Manage the policy types that are available within Veriam"
+  },
+  "admin_section_types": {
+    "nav_label": "Section Types",
+    "title": "Section types",
+    "subtitle": "Manage the section types that are available within Veriam"
+  },
+  "admin_service_providers": {
+    "nav_label": "Service Providers",
+    "title": "Service Providers",
+    "subtitle": "Manage the service providers that are available within Veriam"
+  },
+  "admin_users": {
+    "nav_label": "Users",
+    "overview": {
+      "title": "Users",
+      "subtitle": "Manage the users that are available within Veriam"
+    },
+    "admin_user_details": {
+      "title": "{{userName}}",
+      "subtitle": "{{userEmail}}"
+    }
+  },
+  "admin_wizard_types": {
+    "nav_label": "Wizard Types",
+    "title": "Wizard Types",
+    "subtitle": "Manage the wizard types that are available within Veriam"
+  },
+  "admin_wizards": {
+    "nav_label": "Wizards",
+    "title": "Wizards",
+    "subtitle": "Manage the wizards that are available within Veriam"
+  }
+}

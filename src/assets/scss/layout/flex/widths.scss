@@ -1,0 +1,22 @@
+$widths_coefficient: 10%;
+$widths_iterations: 10;
+
+@for $i from 1 through $widths_iterations {
+  $value: $widths_coefficient * $i;
+
+  .mm-min-w-#{$i} {
+    min-width: $value;
+  }
+
+  .mm-max-w-#{$i} {
+    max-width: $value;
+  }
+
+  .mm-w-#{$i} {
+    width: $value;
+  }
+}
+
+.mm-w-fit-content {
+  width: fit-content;
+}

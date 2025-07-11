@@ -1,0 +1,43 @@
+{
+  "app": {
+    "url": "https://app.acmeinc.id",
+    "name": "Acme Inc."
+  },
+  "idp": {
+    "url": "https://idp.acmeinc.id",
+    "clientId": "dc742b28-47f6-11ee-be56-0242ac120002"
+  },
+  "iam": {
+    "url": "https://api.acmeinc.dev"
+  },
+  "onboarding": {
+    "url": "https://api.acmeinc.dev/onboarding"
+  },
+  "events": {
+    "url": "https://api.acmeinc.dev/events"
+  },
+  "policies": {
+    "url": "https://api.acmeinc.dev/policies"
+  },
+  "billing_and_invoicing":{
+    "url":"https://api.acmeinc.dev/billing_and_invoicing"
+  },
+  "contracting": {
+    "url": "https://api.acmeinc.dev/contracting"
+  },
+  "configuration": {
+    "url": "https://api.acmeinc.dev/configuration"
+  },
+  "mm": {
+    "name": "Acme Inc."
+  },
+  "unleash": {
+    "url": "https://api.acmeinc.dev/unleash/proxy",
+    "stage": "development"
+  },
+  "gtm": {
+    "id": "GTM-N6TBN4MT"
+  },
+  "stripe_publishable_key": "pk_test_51O2DZpEVWnWNTxcV24WKIrTZoI1HvEGQWiA9kYJGDtdVCNm0RcsXS9OjVIInr5YdYvZegiP0j1WNBvWAjBUG0IFo00IUW6OzgV",
+  "componentsLibEnabled": true
+}

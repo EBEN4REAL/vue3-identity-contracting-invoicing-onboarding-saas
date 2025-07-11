@@ -1,0 +1,14 @@
+$grid-gaps_coefficient: 2px;
+$grid-gaps_iterations: 16;
+
+@for $i from 1 through $grid-gaps_iterations {
+  $value: $grid-gaps_coefficient * $i;
+
+  .mm-grid-row-gap-#{$i} {
+    grid-row-gap: $value;
+  }
+
+  .mm-grid-column-gap-#{$i} {
+    grid-column-gap: $value;
+  }
+}

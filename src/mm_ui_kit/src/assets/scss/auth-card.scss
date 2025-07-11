@@ -1,0 +1,25 @@
+@use "~/mm_ui_kit/src/assets/scss/breakpoints.scss" as *;
+
+.auth-card{
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 68px 32px 68px;
+    box-shadow: 0px 15px 35px 0px #3c425714;
+    background-color: #ffffff;
+    width: 521px;
+    gap: 30px;
+    border-radius: 12px;
+}
+/* Styles for mobile */
+@media (max-width: $breakpoint-xs) {
+  .auth-card {
+    box-shadow: none;
+    background: transparent;
+    width: calc(100% - 30px);
+    padding: 0;
+    text-align: center;
+  }
+}

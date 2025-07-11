@@ -1,0 +1,86 @@
+{
+  "name": "T12. Data Table Property  (using strategy)",
+  "description": "Tabular display of array-based data using vux-data-table-property.",
+  "mode": "edit",
+  "section_expanded": false,
+  "expand_on_load": false,
+  "status": "pending",
+  "model": {
+    "prop_array_values": [
+      {
+        "poc_textproperty_1_1": "Row 1 - Col 1",
+        "poc_textproperty_1_2": "Row 1 - Col 2",
+        "poc_textproperty_1_3": "Row 1 - Col 3"
+      },
+      {
+        "poc_textproperty_1_1": "Row 2 - Col 1",
+        "poc_textproperty_1_2": "Row 2 - Col 2",
+        "poc_textproperty_1_3": "Row 2 - Col 3"
+      },
+      {
+        "poc_textproperty_1_1": "Row 3 - Col 1",
+        "poc_textproperty_1_2": "Row 3 - Col 2",
+        "poc_textproperty_1_3": "Row 3 - Col 3"
+      }
+    ]
+  },
+  "metadata": {
+    "type": "vux-component-group",
+    "prop_array_values": {
+      "type": "vux-component-list",
+      "poc_textproperty_1_1": {
+        "type": "vux-input-property",
+        "validations": {},
+        "default": {
+          "value": "Default from metadata"
+        }
+      },
+      "poc_textproperty_1_2": {
+        "type": "vux-input-property",
+        "validations": {}
+      },
+      "poc_textproperty_1_3": {
+        "type": "vux-input-property",
+        "validations": {}
+      }
+    }
+  },
+  "i18n": {
+    "prop_array_values": {
+      "poc_textproperty_1_1": {
+        "label": "Column 1",
+        "label_tooltip": "Editable column in table.",
+        "info_text": "This is a column in the data table.",
+        "learn_more_url": "https://example.com/table/column1",
+        "placeholder": ""
+      },
+      "poc_textproperty_1_2": {
+        "label": "Column 2",
+        "label_tooltip": "Second editable column.",
+        "info_text": "Provide values as needed.",
+        "learn_more_url": "https://example.com/table/column2",
+        "placeholder": ""
+      },
+      "poc_textproperty_1_3": {
+        "label": "Column 3",
+        "label_tooltip": "Third editable column.",
+        "info_text": "Supports any text input.",
+        "learn_more_url": "https://example.com/table/column3",
+        "placeholder": "",
+        "default": {
+          "value": "Default from i18n"
+        }
+      },
+      "actions": {
+        "delete": {
+          "label": "",
+          "tooltip": "Delete this row from the array."
+        },
+        "new": {
+          "label": "Create",
+          "tooltip": "Add a new row to the array."
+        }
+      }
+    }
+  }
+}

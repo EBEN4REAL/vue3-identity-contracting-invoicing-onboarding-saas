@@ -1,0 +1,13 @@
+#!/bin/sh
+
+npm run lint
+lint_exit=$?
+
+branch="$(git rev-parse --abbrev-ref HEAD)"
+if [ "$branch" = "main" ] || [ "$branch" = "master" ]; then
+  echo "no-commit-to-branch"
+  exit 1
+fi
+branch_exit=$?
+
+exit $((lint_exit + branch_exit))

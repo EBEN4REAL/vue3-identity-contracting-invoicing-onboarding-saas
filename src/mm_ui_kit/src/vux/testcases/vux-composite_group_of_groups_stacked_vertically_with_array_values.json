@@ -1,0 +1,106 @@
+{
+  "name": "T07. Vertical group with repeated array entries",
+  "description": "Demonstrates array values with consistent schema in one group, and a static required group below.",
+  "mode": "edit",
+  "section_expanded": false,
+  "expand_on_load": false,
+  "status": "pending",
+  "model": {
+    "poc_component_group_1": [
+      {
+        "poc_textproperty_1_1": "Array entry 1 - field 1",
+        "poc_textproperty_1_2": "Array entry 1 - field 2",
+        "poc_textproperty_1_3": "Array entry 1 - field 3"
+      },
+      {
+        "poc_textproperty_1_1": "Array entry 2 - field 1",
+        "poc_textproperty_1_2": "Array entry 2 - field 2",
+        "poc_textproperty_1_3": "Array entry 2 - field 3"
+      },
+      {
+        "poc_textproperty_1_1": "Array entry 3 - field 1",
+        "poc_textproperty_1_2": "Array entry 3 - field 2",
+        "poc_textproperty_1_3": "Array entry 3 - field 3"
+      }
+    ],
+    "poc_component_group_2": {
+      "poc_textproperty_2_1": "Single entry - field 1",
+      "poc_textproperty_2_2": "Single entry - field 2",
+      "poc_textproperty_2_3": "Single entry - field 3"
+    }
+  },
+  "metadata": {
+    "type": "vux-component-group",
+    "layout": { "orientation": "vertical" },
+    "poc_component_group_1": {
+      "type": "vux-component-list",
+      "poc_textproperty_1_1": { "type": "vux-input-property", "validations": {} },
+      "poc_textproperty_1_2": { "type": "vux-input-property", "validations": {} },
+      "poc_textproperty_1_3": { "type": "vux-input-property", "validations": {} }
+    },
+    "poc_component_group_2": {
+      "type": "vux-component-group",
+      "layout": { "orientation": "horizontal" },
+      "poc_textproperty_2_1": { "type": "vux-input-property", "validations": { "required": true } },
+      "poc_textproperty_2_2": { "type": "vux-input-property", "validations": { "required": true } },
+      "poc_textproperty_2_3": { "type": "vux-input-property", "validations": { "required": true } }
+    }
+  },
+  "i18n": {
+    "poc_component_group_1": {
+      "poc_textproperty_1_1": {
+        "label": "Array Field 1",
+        "label_tooltip": "Part of a repeated array group.",
+        "info_text": "Each entry has the same schema.",
+        "learn_more_url": "https://example.com/array/field1",
+        "placeholder": ""
+      },
+      "poc_textproperty_1_2": {
+        "label": "Array Field 2",
+        "label_tooltip": "Shared field in array-based structure.",
+        "info_text": "Repeatable with same structure.",
+        "learn_more_url": "https://example.com/array/field2",
+        "placeholder": ""
+      },
+      "poc_textproperty_1_3": {
+        "label": "Array Field 3",
+        "label_tooltip": "Used across all array rows.",
+        "info_text": "Structured input per array item.",
+        "learn_more_url": "https://example.com/array/field3",
+        "placeholder": ""
+      }
+    },
+    "poc_component_group_2": {
+      "poc_textproperty_2_1": {
+        "label": "Required Field 1",
+        "label_tooltip": "Must be filled before submission.",
+        "info_text": "Standalone field with validation.",
+        "learn_more_url": "https://example.com/static/field1",
+        "validations": {
+          "required": "This field is required."
+        },
+        "placeholder": ""
+      },
+      "poc_textproperty_2_2": {
+        "label": "Required Field 2",
+        "label_tooltip": "Also required for this section.",
+        "info_text": "Ensure it is completed.",
+        "learn_more_url": "https://example.com/static/field2",
+        "validations": {
+          "required": "This field is required."
+        },
+        "placeholder": ""
+      },
+      "poc_textproperty_2_3": {
+        "label": "Required Field 3",
+        "label_tooltip": "Final required input field.",
+        "info_text": "Completes the bottom section.",
+        "learn_more_url": "https://example.com/static/field3",
+        "validations": {
+          "required": "This field is required."
+        },
+        "placeholder": ""
+      }
+    }
+  }
+}

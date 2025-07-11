@@ -1,0 +1,15 @@
+{
+  "name": "mm_ui_kit",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "setup": "cp -f scripts/pre-commit $(git rev-parse --git-dir)/hooks/ && chmod +x $(git rev-parse --git-dir)/hooks/pre-commit",
+    "typecheck": "vue-tsc --noEmit",
+    "lint": "eslint --ext .js,.ts,.vue --fix src",
+    "lint:check": "eslint --ext .js,.ts,.vue src"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.0",
+    "@eslint/js": "^9.21.0"
+  }
+}

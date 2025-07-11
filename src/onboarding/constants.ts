@@ -1,0 +1,25 @@
+export const shortcutsForDatepickers = {
+  date: [
+    "Today",
+    "Yesterday",
+    "This week",
+    "Last week",
+    "This month",
+    "Last month",
+    "This year",
+    "Last year",
+    "All time",
+  ],
+  time: [],
+  datetime: [
+    "Today",
+    "Yesterday",
+    "This week",
+    "Last week",
+    "This month",
+    "Last month",
+    "This year",
+    "Last year",
+    "All time",
+  ],
+};

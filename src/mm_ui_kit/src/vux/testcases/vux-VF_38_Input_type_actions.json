@@ -1,0 +1,65 @@
+{
+  "name": "VF-38 Input type actions",
+  "description": "Basic usage of input fields with actions.",
+  "mode": "edit",
+  "section_expanded": false,
+  "expand_on_load": false,
+  "status": "new",
+  "model": {
+    "poc_textproperty_secret": "secretvaluefromapi"
+  },
+  "metadata": {
+    "type": "vux-component-group",
+    "poc_textproperty_secret": {
+      "type": "vux-input-property",
+      "validations": {},
+      "inputMode": "secret",
+      "actions": {
+        "reveal": {
+          "style": "reveal",
+          "status": {
+            "hidden": false,
+            "pressed": false
+          }
+        },
+        "copy": {
+          "status": {
+            "hidden": false,
+            "pressed": false
+          }
+        }
+      }
+    }
+  },
+  "i18n": {
+    "poc_textproperty_secret": {
+      "label": "Secret Text Input",
+      "label_tooltip": "Enter secret text here.",
+      "info_text": "This field is secret",
+      "learn_more_url": "https://example.com/poc_textproperty_secret",
+      "placeholder": "",
+      "actions": {
+        "reveal": {
+          "label": "",
+          "tooltip": "Click to reveal",
+          "status": {
+            "pressed": {
+              "label": "",
+              "tooltip": "Click to hide"
+            }
+          }
+        },
+        "copy": {
+          "label": "",
+          "tooltip": "Copy secret",
+          "status": {
+            "pressed": {
+              "label": "",
+              "tooltip": "Copied!"
+            }
+          }
+        }
+      }
+    }
+  }
+}

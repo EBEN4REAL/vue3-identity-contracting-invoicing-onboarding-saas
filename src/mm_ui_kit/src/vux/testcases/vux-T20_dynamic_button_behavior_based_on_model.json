@@ -1,0 +1,88 @@
+{
+  "name": "T20. Dynamic Button Behavior Based On Model Data",
+  "description": "Tabular display of array-based data using vux-data-table-property. The objective of this test is to show how the delete button behaves dynamically based on the provided boolean values.",
+  "mode": "edit",
+  "section_expanded": false,
+  "expand_on_load": true,
+  "status": "pending",
+  "model": [
+    {
+      "disabled": true,
+      "hidden": false,
+      "waiting": true
+    },
+    {
+      "disabled": false,
+      "hidden": true,
+      "waiting": false
+    },
+    {
+      "disabled": true,
+      "hidden": true,
+      "waiting": false
+    }
+  ],
+  "metadata": {
+    "type": "vux-component-list",
+    "disabled": {
+      "type": "vux-input-property",
+      "inputMode": "checkbox",
+      "validations": {},
+      "default": {
+        "value": true
+      }
+    },
+    "hidden": {
+      "type": "vux-input-property",
+      "inputMode": "checkbox",
+      "validations": {},
+      "default": {
+        "value": false
+      }
+    },
+    "waiting": {
+      "type": "vux-input-property",
+      "inputMode": "checkbox",
+      "validations": {},
+      "default": {
+        "value": false
+      }
+    }
+  },
+  "i18n": {
+    "disabled": {
+      "label": "Disabled",
+      "label_tooltip": "Controls whether the delete button is disabled.",
+      "info_text": "When true, the delete button is disabled for this row.",
+      "learn_more_url": "https://example.com/table/disabled",
+      "placeholder": ""
+    },
+    "hidden": {
+      "label": "Hidden",
+      "label_tooltip": "Controls whether the delete button is hidden.",
+      "info_text": "When true, the delete button is hidden for this row.",
+      "learn_more_url": "https://example.com/table/hidden",
+      "placeholder": ""
+    },
+    "waiting": {
+      "label": "Waiting",
+      "label_tooltip": "Indicates a waiting state for delete button.",
+      "info_text": "When true, the delete button shows a waiting/loading state.",
+      "learn_more_url": "https://example.com/table/waiting",
+      "placeholder": "",
+      "default": {
+        "value": false
+      }
+    },
+    "actions": {
+      "delete": {
+        "label": "",
+        "tooltip": "Delete this row from the array."
+      },
+      "new": {
+        "label": "Create",
+        "tooltip": "Add a new row to the array."
+      }
+    }
+  }
+}

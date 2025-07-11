@@ -1,0 +1,62 @@
+import { PolicyTypeRead } from "../../../../src/policies/policies.types";
+
+export const policyTypes: {
+  [key: string]: PolicyTypeRead;
+} = {
+  "001": {
+    id: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    service_provider_id: "4a6f01d0-f3c6-4923-ad98-112d6d97355b",
+    name: "Policy Type 001",
+    description: "Policy Type 001 Description",
+    outcome: "A",
+    return_value: "",
+    audit_level: "string",
+    troubleshoot: true,
+    troubleshoot_end: "2024-04-04T12:33:31.445Z",
+    category_id: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    filters: ["e418fd93-0d10-4c1e-b8e4-b29cddc456b0"],
+    child_policy_types: [],
+  },
+  "002": {
+    id: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    service_provider_id: "4a6f01d0-f3c6-4923-ad98-112d6d97355b",
+    name: "Policy Type 002",
+    description: "Policy Type 002 Description",
+    outcome: "A",
+    audit_level: "string",
+    troubleshoot: true,
+    troubleshoot_end: "2024-04-04T12:33:31.445Z",
+    category_id: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    filters: [],
+    child_policy_types: [
+      "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "3fa85f64-5717-4562-b3fc-2c963f66afa7",
+    ],
+  },
+  "003": {
+    id: "3fa85f64-5717-4562-b3fc-2c963f66afa7",
+    service_provider_id: "4a6f01d0-f3c6-4923-ad98-112d6d97355b",
+    name: "Policy Type 003",
+    description: "Policy Type 003 Description",
+    outcome: "A",
+    audit_level: "string",
+    troubleshoot: true,
+    troubleshoot_end: "2024-04-04T12:33:31.445Z",
+    category_id: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    filters: [],
+    child_policy_types: [],
+  },
+  "004": {
+    id: "3fa85f64-5717-4562-b3fc-2c963f66a004",
+    service_provider_id: "4a6f01d0-f3c6-4923-ad98-112d6d97355b",
+    name: "Policy Type 004",
+    description: "Policy Type 004 Description",
+    outcome: "1",
+    audit_level: "1",
+    troubleshoot: false,
+    troubleshoot_end: null,
+    category_id: "c596a0df-e813-41ab-a735-461d713b9af1",
+    filters: [],
+    child_policy_types: null,
+  },
+};

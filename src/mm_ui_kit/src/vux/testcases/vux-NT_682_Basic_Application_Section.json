@@ -1,0 +1,143 @@
+{
+    "name": "Basic Application Section (NT-682)",
+    "description": "<div><h5>Basic Information Section</h5><div>This section provides a foundation for building components and updating the layout. For further details, refer to <a href='https://veriam.atlassian.net/browse/NT-682' target='_blank'>NT-682</a>.</div></div>",
+    "mode": "edit",
+    "section_expanded": false,
+    "expand_on_load": false,
+    "status": "new",
+    "model": {
+        "name": "Basic Application Section",
+        "description": "This is a basic configuration section for an application.",
+        "vux": {
+            "existingNames": [
+                "AppConfig1",
+                "AppConfig2",
+                "AppConfig3"
+            ]
+        }
+    },
+    "metadata": {
+        "type": "vux-configuration-wizard-header",
+        "layout": "horizontal",
+        "name": {
+            "type": "vux-input-property",
+            "validations": {
+                "required": true,
+                "unique": {
+                    "path": "existingNames"
+                }
+            }
+        },
+        "description": {
+            "type": "vux-input-property",
+            "input_type": "textarea",
+            "validations": {}
+        },
+        "vux": {
+            "existingNames": {
+                "validations": {
+                    "required": true
+                }
+            }
+        },
+        "actions": {
+            "discard": {
+                "status": {
+                    "hidden": false,
+                    "disabled": false,
+                    "waiting": false
+                }
+            },
+            "edit": {
+                "status": {
+                    "hidden": false,
+                    "disabled": false,
+                    "waiting": false
+                }
+            },
+            "save": {
+                "status": {
+                    "hidden": false,
+                    "disabled": false,
+                    "waiting": false
+                }
+            }
+        }
+    },
+    "i18n": {
+        "name": {
+            "label": "Configuration Name",
+            "label_tooltip": "Enter a unique name for the configuration.",
+            "info_text": "This name must be unique among all existing configurations.",
+            "learn_more_url": "https://example.com/learn-more-name",
+            "placeholder": "Enter configuration name",
+            "validations": {
+            "required": "This field is required.",
+            "unique": "This name already exists. Please choose a different name."
+            }
+        },
+        "description": {
+            "label": "Configuration Description",
+            "label_tooltip": "Provide a brief description of the configuration.",
+            "info_text": "This description is optional but recommended.",
+            "learn_more_url": "https://example.com/learn-more-description",
+            "placeholder": "Enter configuration description"
+        },
+        "actions": {
+            "discard": {
+                "label": "Discard Changes",
+                "tooltip": "Click to discard changes and reload the section.",
+                "status": {
+                    "hidden": {
+                        "label": "Hidden",
+                        "tooltip": "This action is currently hidden."
+                    },
+                    "disabled": {
+                        "label": "Disabled",
+                        "tooltip": "This action is currently disabled."
+                    },
+                    "waiting": {
+                        "label": "In Progress",
+                        "tooltip": "This action is currently in progress."
+                    }
+                }
+            },
+            "edit": {
+                "label": "Edit Section",
+                "tooltip": "Click to edit this section.",
+                "status": {
+                    "hidden": {
+                        "label": "Hidden",
+                        "tooltip": "This action is currently hidden."
+                    },
+                    "disabled": {
+                        "label": "Disabled",
+                        "tooltip": "This action is currently disabled."
+                    },
+                    "waiting": {
+                        "label": "In Progress",
+                        "tooltip": "This action is currently in progress."
+                    }
+                }
+            },
+            "save": {
+                "label": "Save Changes",
+                "tooltip": "Click to save changes and reload all wizard data.",
+                "status": {
+                    "hidden": {
+                        "label": "Hidden",
+                        "tooltip": "This action is currently hidden."
+                    },
+                    "disabled": {
+                        "label": "Disabled",
+                        "tooltip": "This action is currently disabled."
+                    },
+                    "waiting": {
+                        "label": "In Progress",
+                        "tooltip": "This action is currently in progress."
+                    }
+                }
+            }
+        }
+    }
+}

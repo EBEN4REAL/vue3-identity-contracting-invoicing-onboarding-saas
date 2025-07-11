@@ -1,0 +1,10 @@
+stages:
+  - test
+
+
+
+lint_job:
+  stage: test
+  image: node:22-alpine
+  script:
+    - echo run lint job here

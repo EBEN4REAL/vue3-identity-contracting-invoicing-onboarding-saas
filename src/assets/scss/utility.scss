@@ -1,0 +1,31 @@
+.cursor-default {
+  cursor: default;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
+
+.no-pointer-events {
+  pointer-events: none;
+}
+
+.tabs-content {
+  &-title {
+    color: #475467;
+  }
+}
+
+pre {
+  color: #000;
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #d0d5dd;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}

@@ -1,0 +1,225 @@
+{
+    "name": "Role Based Access Section (NT_680)",
+    "description": "Allows the user to create and update a set of roles with descriptions. For more information, see <a href='https://veriam.atlassian.net/browse/NT-680' target='_blank'>NT-680</a>.",
+    "mode": "edit",
+    "section_expanded": false,
+    "expand_on_load": false,
+    "status": "new",
+    "model": {
+        "roles": [
+            {
+                "guid": "123e4567-e89b-12d3-a456-426614174000",
+                "name": "Administrator",
+                "description": "Full access to all system features.",
+                "isUsed": true,
+                "isReferenced": false
+            },
+            {
+                "guid": "123e4567-e89b-12d3-a456-426614174001",
+                "name": "Editor",
+                "description": "Can edit content but cannot manage users.",
+                "isUsed": false,
+                "isReferenced": true
+            },
+            {
+                "guid": "123e4567-e89b-12d3-a456-426614174002",
+                "name": "Viewer",
+                "description": "Can view content but cannot make changes.",
+                "isUsed": false,
+                "isReferenced": false
+            }
+        ],
+        "vux": {
+            "existingNames": [
+                "User",
+                "Partner",
+                "Other"
+            ]
+        }
+    },
+    "metadata": {
+        "type": "vux-configuration-wizard-header",
+        "layout": "vertical",
+        "roles": {
+            "type": "vux-component-list",
+            "layout": {
+                "orientation": "horizontal",
+                "visualSeparation": true
+            },
+            "name": {
+                "type": "vux-input-property",
+                "inputMode": "text",
+                "validations": {
+                    "required": true,
+                    "unique": {
+                        "path": "existingNames"
+                    }
+                }
+            },
+            "description": {
+                "type": "vux-input-property",
+                "inputMode": "textarea",
+                "validations": {}
+            },
+            "isUsed": {
+                "type": "vux-input-property",
+                "inputMode": "checkbox",
+                "validations": {}
+            },
+            "isReferenced": {
+                "type": "vux-input-property",
+                "inputMode": "checkbox",
+                "validations": {}
+            },
+            "actions": {
+                "delete": {},
+                "new": {}
+            }
+        },
+        "actions": {
+            "discard": {
+                "status": {
+                    "hidden": false,
+                    "disabled": false,
+                    "waiting": false
+                }
+            },
+            "edit": {
+                "status": {
+                    "hidden": false,
+                    "disabled": false,
+                    "waiting": false
+                }
+            },
+            "save": {
+                "status": {
+                    "hidden": false,
+                    "disabled": false,
+                    "waiting": false
+                }
+            }
+        }
+    },
+    "i18n": {
+        "roles": {
+            "name": {
+                "label": "Role Name",
+                "label_tooltip": "Enter a unique name for the role.",
+                "info_text": "This name must be unique among all existing roles.",
+                "learn_more_url": "https://example.com/learn-more-role-name",
+                "placeholder": "Enter role name",
+                "validations": {
+                    "required": "This field is required.",
+                    "unique": "This name already exists. Please choose a different name."
+                }
+            },
+            "description": {
+                "label": "Role Description",
+                "label_tooltip": "Provide a brief description of the role.",
+                "info_text": "This description is optional but recommended.",
+                "learn_more_url": "https://example.com/learn-more-role-description",
+                "placeholder": "Enter role description"
+            },
+            "isUsed": {
+                "label": "Is Used",
+                "label_tooltip": "Indicates if this role is currently in use. Roles in use cannot be deleted.",
+                "info_text": "This field is automatically updated based on system usage.",
+                "learn_more_url": "https://example.com/learn-more-is-used",
+                "placeholder": ""
+            },
+            "isReferenced": {
+                "label": "Is Referenced",
+                "label_tooltip": "Indicates if this role is referenced elsewhere. Referenced roles cannot be deleted.",
+                "info_text": "This field is automatically updated based on system references.",
+                "learn_more_url": "https://example.com/learn-more-is-referenced",
+                "placeholder": ""
+            },
+            "actions": {
+                "delete": {
+                    "label": "Remove Role",
+                    "tooltip": "Click to remove this role from the list. Cannot delete if the role is used or referenced.",
+                    "status": {
+                        "hidden": {},
+                        "disabled": {
+                            "tooltip": "This role cannot be deleted because it is either in use or referenced elsewhere."
+                        },
+                        "waiting": {
+                            "tooltip": "The system is currently processing the last request. Deleting this role is temporarily unavailable."
+                        }
+                    }
+                },
+                "new": {
+                    "label": "Add Role",
+                    "tooltip": "Click to add a new role to the list.",
+                    "status": {
+                        "hidden": {},
+                        "disabled": {
+                            "label": "",
+                            "tooltip": "Adding a new role is currently disabled. Please check your permissions or system settings."
+                        },
+                        "waiting": {
+                            "label": "",
+                            "tooltip": "The system is currently processing the last request. Adding a new role is temporarily unavailable."
+                        }
+                    }
+                }
+            }
+        },
+        "actions": {
+            "discard": {
+                "label": "Discard Changes",
+                "tooltip": "Click to discard changes and reload the section.",
+                "status": {
+                    "hidden": {
+                        "label": "Hidden",
+                        "tooltip": "The discard operation is hidden and cannot be accessed at the moment."
+                    },
+                    "disabled": {
+                        "label": "",
+                        "tooltip": "You cannot discard changes right now. Please ensure all conditions are met."
+                    },
+                    "waiting": {
+                        "label": "",
+                        "tooltip": "The discard operation is currently unavailable while the system processes your request."
+                    }
+                }
+            },
+            "edit": {
+                "label": "Edit Section",
+                "tooltip": "Click to edit this section.",
+                "status": {
+                    "hidden": {
+                        "label": "",
+                        "tooltip": "The edit operation is hidden and cannot be accessed at the moment."
+                    },
+                    "disabled": {
+                        "label": "",
+                        "tooltip": "Editing is currently disabled. Please check your permissions or system status."
+                    },
+                    "waiting": {
+                        "label": "",
+                        "tooltip": "The edit operation is currently unavailable while the system processes your request."
+                    }
+                }
+            },
+            "save": {
+                "label": "Save Changes",
+                "tooltip": "Click to save changes and reload all wizard data.",
+                "status": {
+                    "hidden": {
+                        "label": "",
+                        "tooltip": "The save operation is hidden and cannot be accessed at the moment."
+                    },
+                    "disabled": {
+                        "label": "",
+                        "tooltip": "Saving is currently disabled. Please ensure all required fields are completed."
+                    },
+                    "waiting": {
+                        "label": "",
+                        "tooltip": "The save operation is currently unavailable while the system processes your request."
+                    }
+                }
+            }
+        }
+    }
+}

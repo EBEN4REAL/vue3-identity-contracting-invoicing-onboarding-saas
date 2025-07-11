@@ -1,0 +1,49 @@
+{
+  "app": {
+    "url": "http://localhost:5172",
+    "name": "Acme Inc."
+  },
+  "spApp": {
+    "url": "http://localhost:5173"
+  },
+  "idp": {
+    "url": "http://localhost",
+    "clientId": "dc742b28-47f6-11ee-be56-0242ac120002",
+    "google": {
+      "clientId": "799808359545-8bsu29bmqp3t4rj5cot94q7sl7pioius.apps.googleusercontent.com"
+    }
+  },
+  "iam": {
+    "url": "http://localhost"
+  },
+  "onboarding": {
+    "url": "http://localhost/onboarding"
+  },
+  "events": {
+    "url": "http://localhost/events"
+  },
+  "policies": {
+    "url": "http://localhost/policies"
+  },
+  "billing_and_invoicing":{
+    "url":"http://localhost/billing_and_invoicing"
+  },
+  "contracting": {
+    "url": "http://localhost/contracting"
+  },
+  "configuration": {
+    "url": "http://localhost/configuration"
+  },
+  "mm": {
+    "name": "Acme Inc."
+  },
+  "unleash": {
+    "url": "http://localhost/unleash/proxy",
+    "stage": "development"
+  },
+  "gtm": {
+    "id": "GTM-55XP36V4"
+  },
+  "stripe_publishable_key": "pk_test_51Qh7qAIHjvS6JobtmnNr7bOOW74V9yvLUcLsQLTn384VrjR9sNpNmjn1nyoxR2aNPclbSxqmeQ9lJq8Yvg8m3tEw00QLlv0uH1",
+  "componentsLibEnabled": true
+}

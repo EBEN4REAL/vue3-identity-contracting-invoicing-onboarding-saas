@@ -1,0 +1,95 @@
+{
+  "name": "T05. Composite group stacked vertically",
+  "description": "Vertical layout of two horizontally-aligned groups, combining optional and required inputs.",
+  "mode": "edit",
+  "section_expanded": false,
+  "expand_on_load": false,
+  "status": "pending",
+  "model": {
+    "poc_component_group_1": {
+      "poc_textproperty_1_1": "First row input 1",
+      "poc_textproperty_1_2": "First row input 2",
+      "poc_textproperty_1_3": "First row input 3"
+    },
+    "poc_component_group_2": {
+      "poc_textproperty_2_1": "Second row input 1",
+      "poc_textproperty_2_2": "Second row input 2",
+      "poc_textproperty_2_3": "Second row input 3"
+    }
+  },
+  "metadata": {
+    "type": "vux-component-group",
+    "layout": { "orientation": "vertical" },
+    "poc_component_group_1": {
+      "type": "vux-component-group",
+      "layout": { "orientation": "horizontal" },
+      "poc_textproperty_1_1": { "type": "vux-input-property", "validations": {} },
+      "poc_textproperty_1_2": { "type": "vux-input-property", "validations": {} },
+      "poc_textproperty_1_3": { "type": "vux-input-property", "validations": {} }
+    },
+    "poc_component_group_2": {
+      "type": "vux-component-group",
+      "layout": { "orientation": "horizontal" },
+      "poc_textproperty_2_1": { "type": "vux-input-property", "validations": { "required": true } },
+      "poc_textproperty_2_2": { "type": "vux-input-property", "validations": { "required": true } },
+      "poc_textproperty_2_3": { "type": "vux-input-property", "validations": { "required": true } }
+    }
+  },
+  "i18n": {
+    "poc_component_group_1": {
+      "poc_textproperty_1_1": {
+        "label": "Row 1 - Input 1",
+        "label_tooltip": "Optional input in first row.",
+        "info_text": "Not required by validation rules.",
+        "learn_more_url": "https://example.com/row1/input1",
+        "placeholder": ""
+      },
+      "poc_textproperty_1_2": {
+        "label": "Row 1 - Input 2",
+        "label_tooltip": "Optional input in first row.",
+        "info_text": "You may leave this blank.",
+        "learn_more_url": "https://example.com/row1/input2",
+        "placeholder": ""
+      },
+      "poc_textproperty_1_3": {
+        "label": "Row 1 - Input 3",
+        "label_tooltip": "Optional input in first row.",
+        "info_text": "Used only for reference.",
+        "learn_more_url": "https://example.com/row1/input3",
+        "placeholder": ""
+      }
+    },
+    "poc_component_group_2": {
+      "poc_textproperty_2_1": {
+        "label": "Row 2 - Required Input 1",
+        "label_tooltip": "You must fill this field.",
+        "info_text": "Critical for form processing.",
+        "learn_more_url": "https://example.com/row2/input1",
+        "validations": {
+          "required": "This field is required."
+        },
+        "placeholder": ""
+      },
+      "poc_textproperty_2_2": {
+        "label": "Row 2 - Required Input 2",
+        "label_tooltip": "Required field in second row.",
+        "info_text": "Cannot submit form without this.",
+        "learn_more_url": "https://example.com/row2/input2",
+        "validations": {
+          "required": "This field is required."
+        },
+        "placeholder": ""
+      },
+      "poc_textproperty_2_3": {
+        "label": "Row 2 - Required Input 3",
+        "label_tooltip": "Mandatory input field.",
+        "info_text": "Validation expects input here.",
+        "learn_more_url": "https://example.com/row2/input3",
+        "validations": {
+          "required": "This field is required."
+        },
+        "placeholder": ""
+      }
+    }
+  }
+}

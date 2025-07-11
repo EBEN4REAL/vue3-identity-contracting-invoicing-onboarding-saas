@@ -1,0 +1,209 @@
+{
+    "name": "Contracting & Compliance Section (NT-752)",
+    "description": "Allows the user to upload and name legal documents. For more information, see <a href='https://veriam.atlassian.net/browse/NT-752' target='_blank'>NT-752</a>.",
+    "mode": "edit",
+    "section_expanded": false,
+    "expand_on_load": false,
+    "status": "new",
+    "model": {
+        "legalDocuments": [
+            {
+                "name": "Contract Agreement",
+                "description": "This is a contract agreement document.",
+                "fileUpload": true,
+                "documentDate": "2023-01-15"
+            },
+            {
+                "name": "Compliance Policy",
+                "description": "This is a compliance policy document.",
+                "fileUpload": false,
+                "documentDate": "2023-02-10"
+            }
+        ],
+        "vux": {
+            "existingNames": [
+                "T&C Agreement",
+                "Privacy Policy",
+                "Data Protection Agreement"
+            ]
+        }
+    },
+    "metadata": {
+        "type": "vux-configuration-wizard-header",
+        "layout": "vertical",
+        "legalDocuments": {
+            "type": "vux-component-list",
+            "layout": {
+                "orientation":"vertical"
+            },
+            "name": {
+                "type": "vux-input-property",
+                "inputMode": "text",
+                "validations": {
+                    "required": true,
+                    "unique": {
+                        "path": "existingNames"
+                    }
+                }
+            },
+            "description": {
+                "type": "vux-input-property",
+                "inputMode": "textarea",
+                "validations": {}
+            },
+            "fileUpload": {
+                "type": "vux-input-property",
+                "inputMode": "toggle",
+                "default": {
+                    "value": false
+                },
+                "validations": {
+                    "required": true
+                }
+            },
+            "documentDate": {
+                "type": "vux-input-property",
+                "inputMode": "date",
+                "validations": {}
+            },
+            "actions": {
+                "delete": {
+                    "label": "",
+                    "tooltip": "Delete this row from the array."
+                },
+                "new": {
+                    "label": "Create",
+                    "tooltip": "Add a new row to the array."
+                }
+            }
+        },
+        "actions": {
+            "discard": {
+                "status": {
+                    "hidden": false,
+                    "disabled": false,
+                    "waiting": false
+                }
+            },
+            "edit": {
+                "status": {
+                    "hidden": false,
+                    "disabled": false,
+                    "waiting": false
+                }
+            },
+            "save": {
+                "status": {
+                    "hidden": false,
+                    "disabled": false,
+                    "waiting": false
+                }
+            }
+        }
+    },
+    "i18n": {
+        "legalDocuments": {
+            "name": {
+                "label": "Document Name",
+                "label_tooltip": "Enter a unique name for the legal document.",
+                "info_text": "This name must be unique among all existing documents.",
+                "learn_more_url": "https://example.com/learn-more-name",
+                "placeholder": "Enter document name",
+                "validations": {
+                    "required": "This field is required.",
+                    "unique": "This name already exists. Please choose a different name."
+                }
+            },
+            "description": {
+                "label": "Document Description",
+                "label_tooltip": "Provide a brief description of the legal document.",
+                "info_text": "This description is optional but recommended.",
+                "learn_more_url": "https://example.com/learn-more-description",
+                "placeholder": "Enter document description"
+            },
+            "fileUpload": {
+                "label": "File Upload",
+                "label_tooltip": "Toggle to indicate whether the document has been uploaded.",
+                "info_text": "This field is required to confirm the document upload.",
+                "learn_more_url": "https://example.com/learn-more-file-upload",
+                "placeholder": "",
+                "validations": {
+                    "required": "This field is required."
+                }
+            },
+            "documentDate": {
+                "label": "Document Date",
+                "label_tooltip": "Enter the date of the legal document.",
+                "info_text": "This field is optional but important for tracking different versions.",
+                "learn_more_url": "https://example.com/learn-more-document-date",
+                "placeholder": "Enter document date"
+            },
+            "actions": {
+                "delete": {
+                    "label": "Remove Document",
+                    "tooltip": "Click to remove this document from the list."
+                },
+                "new": {
+                    "label": "Add Document",
+                    "tooltip": "Click to add a new legal document to the list."
+                }
+            }
+        },
+        "actions": {
+            "discard": {
+                "label": "Discard Changes",
+                "tooltip": "Click to discard changes and reload the section.",
+                "status": {
+                    "hidden": {
+                        "label": "Hidden",
+                        "tooltip": "This action is currently hidden."
+                    },
+                    "disabled": {
+                        "label": "Disabled",
+                        "tooltip": "This action is currently disabled."
+                    },
+                    "waiting": {
+                        "label": "In Progress",
+                        "tooltip": "This action is currently in progress."
+                    }
+                }
+            },
+            "edit": {
+                "label": "Edit Section",
+                "tooltip": "Click to edit this section.",
+                "status": {
+                    "hidden": {
+                        "label": "Hidden",
+                        "tooltip": "This action is currently hidden."
+                    },
+                    "disabled": {
+                        "label": "Disabled",
+                        "tooltip": "This action is currently disabled."
+                    },
+                    "waiting": {
+                        "label": "In Progress",
+                        "tooltip": "This action is currently in progress."
+                    }
+                }
+            },
+            "save": {
+                "label": "Save Changes",
+                "tooltip": "Click to save changes and reload all wizard data.",
+                "status": {
+                    "hidden": {
+                        "label": "Hidden",
+                        "tooltip": "This action is currently hidden."
+                    },
+                    "disabled": {
+                        "label": "Disabled",
+                        "tooltip": "This action is currently disabled."
+                    },
+                    "waiting": {
+                        "label": "In Progress",
+                        "tooltip": "This action is currently in progress."
+                    }
+                }
+            }
+        }
+    }
+}

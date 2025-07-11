@@ -1,0 +1,97 @@
+{
+  "name": "T04. Composite group stacked horizontally",
+  "description": "Tests a composite layout with two vertically-stacked groups arranged horizontally.",
+  "mode": "edit",
+  "section_expanded": false,
+  "expand_on_load": false,
+  "status": "pending",
+  "model": {
+    "poc_component_group_1": {
+      "poc_textproperty_1_1": "First group input 1",
+      "poc_textproperty_1_2": "First group input 2",
+      "poc_textproperty_1_3": "First group input 3"
+    },
+    "poc_component_group_2": {
+      "poc_textproperty_2_1": "Second group input 1",
+      "poc_textproperty_2_2": "Second group input 2",
+      "poc_textproperty_2_3": "Second group input 3"
+    }
+  },
+  "metadata": {
+    "type": "vux-component-group",
+    "layout": {
+      "orientation": "horizontal",
+      "visualSeparation" : false },
+    "poc_component_group_1": {
+      "type": "vux-component-group",
+      "layout": { "orientation": "vertical",  "visualSeparation" : false },
+      "poc_textproperty_1_1": { "type": "vux-input-property", "validations": {} },
+      "poc_textproperty_1_2": { "type": "vux-input-property", "validations": {} },
+      "poc_textproperty_1_3": { "type": "vux-input-property", "validations": {} }
+    },
+    "poc_component_group_2": {
+      "type": "vux-component-group",
+      "layout": { "orientation": "vertical",  "visualSeparation" : false },
+      "poc_textproperty_2_1": { "type": "vux-input-property", "validations": { "required": true } },
+      "poc_textproperty_2_2": { "type": "vux-input-property", "validations": { "required": true } }
+    }
+  },
+  "i18n": {
+    "poc_component_group_1": {
+      "poc_textproperty_1_1": {
+        "label": "Group 1 - Input 1",
+        "label_tooltip": "Optional input field in first group.",
+        "info_text": "This field is not required.",
+        "learn_more_url": "https://example.com/group1/input1",
+        "placeholder": ""
+      },
+      "poc_textproperty_1_2": {
+        "label": "Group 1 - Input 2",
+        "label_tooltip": "Optional input field in first group.",
+        "info_text": "Free input allowed.",
+        "learn_more_url": "https://example.com/group1/input2",
+        "placeholder": ""
+
+      },
+      "poc_textproperty_1_3": {
+        "label": "Group 1 - Input 3",
+        "label_tooltip": "Optional input field in first group.",
+        "info_text": "Fill if applicable.",
+        "learn_more_url": "https://example.com/group1/input3",
+        "placeholder": ""
+      }
+    },
+    "poc_component_group_2": {
+      "poc_textproperty_2_1": {
+        "label": "Group 2 - Input 1 (Required)",
+        "label_tooltip": "This field must be filled in.",
+        "info_text": "Required for group 2 validation.",
+        "learn_more_url": "https://example.com/group2/input1",
+        "validations": {
+          "required": "This field is required."
+        },
+        "placeholder": ""
+      },
+      "poc_textproperty_2_2": {
+        "label": "Group 2 - Input 2 (Required)",
+        "label_tooltip": "A mandatory field in group 2.",
+        "info_text": "Ensure this value is filled.",
+        "learn_more_url": "https://example.com/group2/input2",
+        "validations": {
+          "required": "This field is required."
+        },
+        "placeholder": ""
+      },
+      "poc_textproperty_2_3": {
+        "label": "Group 2 - Input 3 (Required)",
+        "label_tooltip": "Last required input in group 2.",
+        "info_text": "Required for complete group input.",
+        "learn_more_url": "https://example.com/group2/input3",
+        "validations": {
+          "required": "This field is required."
+        },
+        "placeholder": ""
+      }
+    }
+  }
+}

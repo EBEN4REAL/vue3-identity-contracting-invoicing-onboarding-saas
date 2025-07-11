@@ -1,0 +1,18 @@
+$heights_coefficient: 10%;
+$heights_iterations: 10;
+
+@for $i from 1 through $heights_iterations {
+  $value: $heights_coefficient * $i;
+
+  .mm-min-h-#{$i} {
+    min-height: $value;
+  }
+
+  .mm-max-h-#{$i} {
+    max-height: $value;
+  }
+
+  .mm-h-#{$i} {
+    height: $value;
+  }
+}

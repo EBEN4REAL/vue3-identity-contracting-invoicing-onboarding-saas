@@ -1,0 +1,13 @@
+node_modules
+.DS_Store
+src/vux/tsconfig.vux.tsbuildinfo
+
+# lock
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
+
+*.log
+
+.idea
+.vscode
